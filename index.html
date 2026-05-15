@@ -323,10 +323,16 @@
       box-shadow: 4px 4px 0 rgba(37,27,54,.06);
     }
 
-    .answer:hover {
-      border-color: rgba(255,111,177,.45);
-      box-shadow: 6px 6px 0 rgba(255,111,177,.16);
-    }
+    @media (hover: hover) and (pointer: fine) {
+  .answer:hover {
+    border-color: rgba(255,111,177,.45);
+    box-shadow: 6px 6px 0 rgba(255,111,177,.16);
+  }
+}
+
+.answer:focus {
+  outline: none;
+}
 
     .answer-mark {
       width: 32px;
