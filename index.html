@@ -901,6 +901,218 @@ display: flex;
   font-weight: 800;
   white-space: pre-line;
 }
+/* 保存・共有専用：横長カード */
+.share-card-capture {
+  position: fixed;
+  left: -9999px;
+  top: 0;
+  width: 1200px;
+  height: 960px;
+  background:
+    radial-gradient(circle at 18px 18px, rgba(125, 92, 255, 0.10) 0 4px, transparent 5px),
+    radial-gradient(circle at 84% 8%, rgba(255, 111, 177, 0.30), transparent 280px),
+    radial-gradient(circle at 8% 80%, rgba(75, 183, 255, 0.26), transparent 300px),
+    linear-gradient(135deg, #fff7fd 0%, #f5fbff 52%, #fffbee 100%);
+  background-size: 34px 34px, auto, auto, auto;
+  padding: 42px;
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+.share-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 44px;
+  border-radius: 42px;
+  background: linear-gradient(135deg, #fff 0%, #fff2fa 38%, #eff8ff 72%, #fff9d8 100%);
+  border: 3px solid rgba(37, 27, 54, 0.12);
+  box-shadow: 10px 10px 0 rgba(37, 27, 54, 0.12);
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  grid-template-rows: auto 390px 1fr;
+  gap: 28px 38px;
+  overflow: hidden;
+}
+.share-card-top {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--purple);
+  font-size: 16px;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+}
+
+.share-card-top strong {
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  font-size: 24px;
+  box-shadow: 5px 5px 0 rgba(37, 27, 54, 0.12);
+  transform: rotate(3deg);
+}
+
+.share-card-photo {
+  position: relative;
+  grid-column: 1;
+  grid-row: 2;
+  height: 300px;
+  border-radius: 30px;
+  border: 3px solid rgba(37, 27, 54, 0.10);
+  background:
+    repeating-linear-gradient(-45deg, rgba(125, 92, 255, 0.08) 0 2px, transparent 2px 12px),
+    #fff;
+  box-shadow: 7px 7px 0 rgba(37, 27, 54, 0.08);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-card-photo::before {
+  content: "My推し";
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 950;
+  box-shadow: 4px 4px 0 rgba(37, 27, 54, 0.10);
+}
+
+.share-card-photo img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.share-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(37, 27, 54, 0.42);
+  font-size: 28px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+}
+
+
+
+.share-label {
+  display: inline-flex;
+  margin: 0 0 14px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--ink);
+  font-size: 15px;
+  font-weight: 950;
+}
+
+
+
+.share-card-main {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
+}
+
+.share-card-main h3 {
+  margin: 0;
+  font-size: 48px;
+  line-height: 1.04;
+  letter-spacing: -0.07em;
+  font-weight: 950;
+  color: var(--ink);
+}
+
+.share-catch {
+  margin: 18px 0 0;
+  color: var(--purple);
+  font-size: 24px;
+  line-height: 1.45;
+  font-weight: 950;
+}
+
+.share-body {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.72;
+  font-weight: 800;
+  white-space: pre-line;
+}
+
+.share-mini-row {
+  grid-column: 2;
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+  align-self: start;
+}
+
+.share-hunt {
+  grid-column: 1;
+  grid-row: 3;
+  margin-top: 12px;
+  background: #fff4bf;
+  align-self: start;
+}
+
+.share-mini-box,
+.share-hunt {
+  padding: 18px 20px;
+  border-radius: 24px;
+  border: 2px solid rgba(37, 27, 54, 0.08);
+  box-shadow: 4px 4px 0 rgba(37, 27, 54, 0.06);
+}
+
+.share-mini-box:nth-child(1) {
+  background: var(--pink-soft);
+}
+
+.share-mini-box:nth-child(2) {
+  background: var(--blue-soft);
+}
+
+.share-mini-box span,
+.share-hunt span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.share-mini-box p,
+.share-hunt p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 850;
+  white-space: pre-line;
+}
+
+
   </style>
 
 
@@ -914,7 +1126,7 @@ display: flex;
       { text: '推し活で一番幸せなのは？', answers: [['現場で同じ空気を吸っている時間','memory'],['供給を何度も見返している時間','performance'],['好きな瞬間を保存している時間','visual'],['誰かと感想を言い合う時間','community'],['推しの成長や変化を感じる時間','context']] },
       { text: 'あなたのカメラロールに多そうなのは？', answers: [['ライブ・現場の記録','memory'],['推しのスクショ','visual'],['グッズやトレカ','collector'],['情報整理のスクショ','creator'],['SNSで見つけた感想やレポ','community']] },
       { text: 'つい見返してしまうのは？', answers: [['ライブ映像','performance'],['MVやビジュアル系の映像','visual'],['推しやグループのバラエティ・裏側コンテンツ','relation'],['インタビュー','context'],['自分や他の人の現場レポ','memory']] },
-      { text: 'グループ内に推しが増えるきっかけは？', answers: [['パフォーマンスで急に刺さる','performance'],['ビジュが突然仕上がる','visual'],['人柄や発言にやられる','context'],['推し同士の関係性で好きになる','relation'],['見ているうちに全員好きになる','community']] },
+      { text: '推しが増える理由は？', answers: [['パフォーマンスで急に刺さる','performance'],['ビジュが突然仕上がる','visual'],['人柄や発言にやられる','context'],['推し同士の関係性で好きになる','relation'],['見ているうちに全員好きになる','community']] },
       { text: 'あなたの推し活を一言でいうと？', answers: [['記憶を抱えて生きる','memory'],['好きを形に残す','collector'],['魅力を伝えたくなる','creator'],['何度でも読み解きたい','performance'],['みんなで沸くのが楽しい','community']] }
     ];
 
@@ -1045,6 +1257,20 @@ function applyUploadedPhoto() {
 
     if (status) status.textContent = '未選択でも診断できます';
   }
+    applySharePhoto();
+}
+function applySharePhoto() {
+  var sharePhoto = document.getElementById('sharePhoto');
+
+  if (!sharePhoto) return;
+
+  if (uploadedPhotoData) {
+    sharePhoto.innerHTML =
+      '<img src="' + uploadedPhotoData + '" alt="アップロードした推し写真">';
+  } else {
+    sharePhoto.innerHTML =
+      '<div class="share-placeholder">My推し</div>';
+  }
 }
  
 
@@ -1141,7 +1367,17 @@ function clearUploadedPhoto() {
       for (var i = 0; i < items.length; i++) html += '<li>' + items[i] + '</li>';
       document.getElementById(id).innerHTML = html;
     }
+   function updateShareCard(data) {
+  document.getElementById('shareNumber').textContent = data.n;
+  document.getElementById('shareTitle').textContent = data.t;
+  document.getElementById('shareCatch').textContent = data.c;
+  document.getElementById('shareBody').textContent = data.b;
+  document.getElementById('shareWake').textContent = data.w.join(' / ');
+  document.getElementById('shareSns').textContent = data.sns.join(' / ');
+  document.getElementById('shareHunt').textContent = data.huntTitle + '\n' + data.huntBody;
 
+  applySharePhoto();
+}
     function showQuizResult() {
       var data = quizResults[getQuizWinner()];
       document.getElementById('resultNumber').textContent = data.n;
@@ -1152,7 +1388,8 @@ function clearUploadedPhoto() {
 setList('resultSns', data.sns);
 document.getElementById('resultHuntTitle').textContent = data.huntTitle;
 document.getElementById('resultHuntBody').textContent = data.huntBody;
-   
+         updateShareCard(data);
+
       document.getElementById('resultSection').classList.add('show');
       document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -1176,7 +1413,7 @@ document.getElementById('resultHuntBody').textContent = data.huntBody;
       }
     }
 function createResultCanvas(callback) {
-  var card = document.getElementById('resultCard');
+  var card = document.getElementById('shareCard');
 
   if (!card) {
     showToast('結果カードが見つかりません');
@@ -1391,6 +1628,44 @@ function showToast(message) {
   </div>
 </aside>
       </div>
+      <div class="share-card-capture" id="shareCard" aria-hidden="true">
+  <div class="share-card-inner">
+    <div class="share-card-top">
+      <span>YOUR OTAKU NUMA TYPE</span>
+      <strong id="shareNumber">01</strong>
+    </div>
+
+    <div class="share-card-photo" id="sharePhoto">
+      <div class="share-placeholder">My推し</div>
+    </div>
+
+    <div class="share-card-main">
+      <p class="share-label">あなたのタイプは...</p>
+      <h3 id="shareTitle">パフォーマンス深掘り型</h3>
+      <p class="share-catch" id="shareCatch">歌、ダンス、表情で何回も狩られるオタク。</p>
+      <p class="share-body" id="shareBody"></p>
+
+      <div class="share-mini-row">
+        <div class="share-mini-box">
+          <span>沸きがちな供給</span>
+          <p id="shareWake"></p>
+        </div>
+
+        <div class="share-mini-box">
+          <span>SNSでやりがち</span>
+          <p id="shareSns"></p>
+        </div>
+      </div>
+
+      <div class="share-hunt">
+        <span>狩られがちな推しタイプ</span>
+        <p id="shareHunt"></p>
+      </div>
+    </div>
+
+   
+  </div>
+</div>
     </section>
 
     <section id="types">
