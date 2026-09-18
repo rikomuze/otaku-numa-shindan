@@ -1512,8 +1512,23 @@ function showToast(message) {
   }, 1600);
 }
   </script>
+
+  <style id="muze-common-nav-style">
+    .muze-common-nav{max-width:1100px;margin:14px auto 20px;padding:0 16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .muze-common-nav a{display:inline-block;padding:8px 11px;border:1px solid rgba(37,27,54,.16);border-radius:999px;background:#fff;color:#251b36;text-decoration:none;font-size:12px;font-weight:800;line-height:1.2}
+    .muze-common-nav a[aria-current="page"]{background:#251b36;color:#fff}
+    @media(max-width:640px){.muze-common-nav{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}.muze-common-nav a{white-space:nowrap}}
+  </style>
 </head>
 <body onload="initQuiz()">
+  <nav class="muze-common-nav" aria-label="MUZE TOOL BOX 共通ナビ">
+    <a href="https://rikomuze.github.io/muze-tool-box/">MUZE TOOL BOXのトップ</a>
+    <a href="https://rikomuze.github.io/mazzel-best-visual/">アー写編９マス</a>
+    <a href="https://rikomuze.github.io/mazzel-best-visual-performance/">パフォ衣装編９マス</a>
+    <a href="https://rikomuze.github.io/oshi-visual-6/">推しビジュ6選</a>
+    <a href="https://rikomuze.github.io/otaku-numa-shindan/" aria-current="page">オタクタイプ診断</a>
+    <a href="https://rikomuze.github.io/mazzel-touch-campaign/">新曲キャンペーン</a>
+  </nav>
   <main class="wrap">
     <section class="hero" id="top">
       <div class="hero-main card">
