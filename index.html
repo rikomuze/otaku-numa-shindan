@@ -105,7 +105,7 @@ h1{font-size:clamp(2.25rem,8.6vw,3.5rem);font-weight:900;letter-spacing:.01em;li
 .r-line{display:inline-flex;align-items:baseline;gap:8px;margin-top:12px;font-family:var(--hand);font-weight:600}
 .r-line small{font-family:var(--sans);font-size:.6875rem;font-weight:700;letter-spacing:.08em;background:var(--ink);color:#fff;padding:1px 7px;border-radius:30px;transform:translateY(-2px)}
 .r-photo{float:right;width:118px;margin:4px 0 8px 14px;background:#fff;border:1.5px solid var(--ink);padding:5px 5px 20px;box-shadow:3px 4px 0 var(--ink);transform:rotate(3deg);position:relative}
-.r-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.r-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;outline:1px solid transparent;-webkit-backface-visibility:hidden;backface-visibility:hidden}
 .r-photo span{position:absolute;left:0;right:0;bottom:1px;text-align:center;font-family:var(--hand);font-weight:600;font-size:.6875rem}
 .r-body{margin:16px 0 0;white-space:pre-line;font-size:.9688rem}
 .r-sec{margin-top:24px;clear:both}
@@ -598,6 +598,20 @@ function box(ctx, x, y, w, h, fill, shadow){
   ctx.fillStyle = fill; rr(ctx, x, y, w, h, 8); ctx.fill();
   ctx.lineWidth = 3; ctx.strokeStyle = INK; rr(ctx, x, y, w, h, 8); ctx.stroke();
 }
+function framePic(fw, fh){
+  // 2倍の解像度で、白フチ＋黒線＋写真＋ラベルを描く（周りに透明の余白）
+  var k = 2, pad = 4, W = (fw + 20 + pad*2)*k, H = (fh + 56 + pad*2)*k;
+  var c = document.createElement('canvas'); c.width = W; c.height = H;
+  var x = c.getContext('2d'); x.scale(k, k); x.translate(pad, pad);
+  x.imageSmoothingEnabled = true; x.imageSmoothingQuality = 'high';
+  x.fillStyle = '#fff'; x.fillRect(0, 0, fw + 20, fh + 56);
+  var ir = photo.width/photo.height, r = fw/fh, sw, sh, sx, sy;
+  if(ir > r){ sh = photo.height; sw = sh*r; sx = (photo.width - sw)/2; sy = 0; } else { sw = photo.width; sh = sw/r; sx = 0; sy = (photo.height - sh)*0.3; }
+  x.drawImage(photo, sx, sy, sw, sh, 10, 10, fw, fh);
+  x.lineWidth = 3; x.strokeStyle = INK; x.strokeRect(1.5, 1.5, fw + 17, fh + 53);
+  x.fillStyle = INK; x.font = '600 24px ' + F_HAND; x.textAlign = 'center'; x.fillText('My推し', fw/2 + 10, fh + 44);
+  return { c:c, pad:pad };
+}
 function drawCard(g){
   var wk = R.what[0].k, hk = R.how[0].k, w = WHAT[wk], h = HOW[hk];
   var W = 1080, H = 1350, c = document.createElement('canvas'); c.width = W; c.height = H;
@@ -620,14 +634,13 @@ function drawCard(g){
   var tx = x0, tw = cw - 150, photoBottom = 0;
   if(photo){
     var fw = 230, fh = Math.round(fw * 1.25), fx = x0 + cw - fw - 10, fy = y - 4;
+    // 写真フレームは傾けずに別キャンバスで組み立ててから、傾けて貼る。
+    // 傾けた状態で写真を直接描くと縁がギザギザになるため、透明の余白をつけて補間させる。
+    var fr2 = framePic(fw, fh);
     ctx.save(); ctx.translate(fx + fw/2, fy + fh/2); ctx.rotate(0.04);
     ctx.fillStyle = INK; ctx.fillRect(-fw/2 - 10 + 6, -fh/2 - 10 + 8, fw + 20, fh + 56);
-    ctx.fillStyle = '#fff'; ctx.fillRect(-fw/2 - 10, -fh/2 - 10, fw + 20, fh + 56);
-    ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.strokeRect(-fw/2 - 10, -fh/2 - 10, fw + 20, fh + 56);
-    var ir = photo.width/photo.height, fr = fw/fh, sw, sh, sx, sy;
-    if(ir > fr){ sh = photo.height; sw = sh*fr; sx = (photo.width - sw)/2; sy = 0; } else { sw = photo.width; sh = sw/fr; sx = 0; sy = (photo.height - sh)*0.3; }
-    ctx.drawImage(photo, sx, sy, sw, sh, -fw/2, -fh/2, fw, fh);
-    ctx.fillStyle = INK; ctx.font = '600 24px ' + F_HAND; ctx.textAlign = 'center'; ctx.fillText('My推し', 0, fh/2 + 34); ctx.textAlign = 'left';
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(fr2.c, -fw/2 - 10 - fr2.pad, -fh/2 - 10 - fr2.pad, fw + 20 + fr2.pad*2, fh + 56 + fr2.pad*2);
     ctx.restore();
     tw = cw - fw - 50; photoBottom = fy + fh + 64;
   }
