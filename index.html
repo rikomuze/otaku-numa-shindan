@@ -4,542 +4,533 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>オタク沼タイプ診断</title>
-<meta name="description" content="終演後の過ごし方、カメラロールの中身、布教のクセ。12問で、あなたの“沼り方”と沼成分がわかる推し活診断。">
+<meta name="description" content="何に沸いて、どう沼っているのか。12問で、あなたの沸きポイントと沼り方がわかる推し活診断。">
 <meta property="og:title" content="オタク沼タイプ診断">
-<meta property="og:description" content="12問で、あなたの“沼り方”と沼成分がわかる推し活診断。推し写真入りの結果カードも作れます。">
+<meta property="og:description" content="何に沸いて、どう沼っているのか。12問で、あなたの沸きポイントと沼り方がわかる推し活診断。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rikomuze.github.io/otaku-numa-shindan/">
 <meta property="og:image" content="https://rikomuze.github.io/otaku-numa-shindan/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="オタク沼タイプ診断">
-<meta name="twitter:description" content="12問で、あなたの“沼り方”と沼成分がわかる推し活診断。">
+<meta name="twitter:description" content="何に沸いて、どう沼っているのか。12問でわかる推し活診断。">
 <meta name="twitter:image" content="https://rikomuze.github.io/otaku-numa-shindan/ogp.png">
-<meta name="theme-color" content="#f1ebe1">
+<meta name="theme-color" content="#f7f5ed">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
 <style>
-/* MUZE TOOL BOX「作業机」ブランド：方眼の机に、白フチのプリントとマステ。 */
+/* PLAY ROOM基調：生成りの地に、黒フチ＋ずらし影の白カード、パステルの色面。 */
 :root{
-  --desk:#f1ebe1; --paper:#ffffff; --sheet:#b8ad9d; --pencil:#40382f; --faded:#8a8072; --line:rgba(64,56,47,.16);
-  --pink:#D8A6A8; --berry:#e27a94; --tape-berry:rgba(226,122,148,.85); --tape-mint:rgba(164,197,175,.85);
-  --accent:#e27a94; --accent-soft:rgba(226,122,148,.14);
-  --hand:"Klee One","Hiragino Maru Gothic ProN","Yu Gothic",cursive;
-  --gothic:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
-  --shadow:0 12px 28px rgba(64,56,47,.18); --dash:1.5px dashed rgba(64,56,47,.32);
+  --bg:#f7f5ed; --paper:#fff; --ink:#282536; --muted:#625f6d; --line:#d5d1d9;
+  --pink:#ffd5df; --lime:#dcefa5; --violet:#ded7ff; --sky:#cfe3ff; --lemon:#fff0c9;
+  --accent:#8051bd; --tint:var(--lemon);
+  --sans:'Zen Kaku Gothic New','Hiragino Sans','Yu Gothic',sans-serif;
+  --hand:'Klee One','Hiragino Sans',sans-serif;
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:radial-gradient(rgba(64,56,47,.05) 1px,transparent 1px) 0 0/22px 22px,var(--desk);color:var(--pencil);
-  font-family:var(--gothic);font-size:15px;line-height:1.8;padding:env(safe-area-inset-top,0) 16px calc(64px + env(safe-area-inset-bottom,0))}
-.wrap{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
-button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
-button:focus-visible,a:focus-visible,label:focus-within{outline:2.5px solid var(--berry);outline-offset:3px}
 [hidden]{display:none!important}
+html{background:var(--bg);-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.75;
+  padding-inline:16px;padding-block:0 calc(48px + env(safe-area-inset-bottom,0px))}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+button:disabled{cursor:default;opacity:.45}
+img{max-width:100%}
+button:focus-visible,a:focus-visible,label:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
 
-/* 共通ヘッダー */
-.site-head{display:flex;flex-direction:column;gap:6px;padding-top:14px}
-.sticker{align-self:flex-start;display:inline-block;background:var(--paper);padding:8px 16px 9px;transform:rotate(-2deg);box-shadow:var(--shadow);position:relative;
-  font-family:var(--hand);font-weight:600;font-size:16px;letter-spacing:.04em;white-space:nowrap;color:var(--pencil);text-decoration:none;margin-left:6px}
-.sticker::before{content:"";position:absolute;width:46px;height:15px;background:var(--tape-berry);top:-7px;left:-12px;transform:rotate(-12deg)}
-.sticker span{color:var(--berry)}
-.tool-nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:8px 2px 6px}
-.tool-nav::-webkit-scrollbar{display:none}
-.tool-nav a{flex:0 0 auto;display:inline-flex;align-items:center;min-height:36px;padding:7px 12px;background:rgba(255,255,255,.58);border:1px solid var(--line);
-  box-shadow:0 4px 12px rgba(64,56,47,.08);font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--faded);text-decoration:none}
-.tool-nav a:nth-child(2n){transform:rotate(-.4deg)}
-.tool-nav a[aria-current="page"]{color:var(--pencil);background:var(--paper);position:relative}
-.tool-nav a[aria-current="page"]::before{content:"";position:absolute;width:32px;height:8px;background:var(--tape-berry);top:-5px;left:50%;transform:translateX(-50%) rotate(-3deg)}
+.global-nav{max-width:680px;margin:0 auto;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:14px;border-bottom:1px solid var(--line);font-size:.875rem}
+.brand{color:inherit;text-decoration:none;font-weight:700;letter-spacing:.045em}
+.current{font-family:var(--hand);font-weight:600}
+.shell{max-width:680px;margin:0 auto;padding:28px 0 0;display:flex;flex-direction:column;gap:26px}
 
-/* 紙 */
-.paper{background:var(--paper);box-shadow:var(--shadow);position:relative;padding:28px 20px 24px}
-.paper.taped::before,.paper.taped::after{content:"";position:absolute;width:72px;height:20px;top:-7px;opacity:.85;z-index:2}
-.paper.taped::before{left:9%;background:var(--tape-berry);transform:rotate(-6deg)}
-.paper.taped::after{right:9%;background:var(--tape-mint);transform:rotate(5deg)}
-h1,h2,h3{font-family:var(--hand);font-weight:600;letter-spacing:.05em;margin:0;text-wrap:balance}
-.kicker{font-size:11px;letter-spacing:.2em;color:var(--faded);font-weight:700}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.1em;background:var(--ink);color:var(--bg);padding:3px 10px;transform:rotate(-3deg);margin:0 0 14px}
+h1{font-size:clamp(2.25rem,8.6vw,3.5rem);font-weight:900;letter-spacing:.01em;line-height:1.2;margin:0}
+.hl{position:relative;isolation:isolate}
+.hl::after{content:'';position:absolute;left:-2%;right:-2%;bottom:7%;height:26%;background:var(--tint);z-index:-1;transform:rotate(-1.8deg)}
+.intro-note{font-family:var(--hand);font-weight:600;font-size:1.0625rem;margin:14px 0 0}
+.intro-lead{font-size:.9375rem;color:var(--muted);margin:10px 0 0}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;padding:12px 22px;border-radius:2px;font-weight:700;letter-spacing:.04em;
-  background:var(--pencil);color:var(--paper);box-shadow:0 6px 14px rgba(64,56,47,.18);text-decoration:none}
-.btn.ghost{background:var(--paper);color:var(--pencil);border:1px solid var(--line);box-shadow:0 4px 12px rgba(64,56,47,.08)}
-.btn.wide{width:100%}
-.btn:disabled{opacity:.4;cursor:default}
-.btn:active{transform:translateY(1px)}
+.card{background:var(--paper);border:1.5px solid var(--ink);border-radius:5px;box-shadow:4px 5px 0 var(--ink)}
+.pad{padding:22px 20px}
 
-/* イントロ */
-.intro h1{font-size:clamp(34px,9.6vw,46px);line-height:1.3;margin:10px 0 0;transform:rotate(-.6deg)}
-.intro h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--tape-mint) 62%)}
-.intro .lead{margin:16px 0 0;font-size:15px}
-.intro .meta{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 22px;padding:0;list-style:none}
-.intro .meta li{font-size:12px;font-weight:700;padding:4px 10px;border:var(--dash);color:var(--faded)}
-.types-peek{display:flex;flex-wrap:wrap;gap:6px 8px;margin-top:20px;padding-top:16px;border-top:var(--dash)}
-.types-peek span{font-family:var(--hand);font-weight:600;font-size:13px;padding:2px 8px;background:var(--desk)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
+.chips li{font-size:.8125rem;font-weight:700;border:1px solid var(--ink);padding:3px 10px;background:#fff;border-radius:30px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 22px;border:1.5px solid var(--ink);border-radius:30px;font-weight:700;
+  background:var(--paper);box-shadow:2px 3px 0 var(--ink);text-align:center;line-height:1.5;text-decoration:none;color:var(--ink)}
+.btn:active:not(:disabled){transform:translate(1px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn.primary{background:var(--lemon)}
+.btn.big{min-height:56px;font-size:1.0625rem;width:100%}
+
+/* 2つの軸 */
+.axes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.axis{border:1.5px solid var(--ink);border-radius:5px;padding:12px 12px 10px;background:#fff}
+.axis b{display:block;font-size:.8125rem;letter-spacing:.06em}
+.axis span{display:block;font-family:var(--hand);font-weight:600;font-size:.875rem;color:var(--muted);line-height:1.6;margin-top:2px}
+.axis:first-child{background:var(--pink)}
+.axis:last-child{background:var(--sky)}
 
 /* 設問 */
-.quiz-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px}
-.qno{font-family:var(--hand);font-weight:600;font-size:15px;color:var(--berry)}
-.qno b{font-size:28px}
-.qcount{font-size:12px;color:var(--faded);font-variant-numeric:tabular-nums}
-.track{height:6px;background:var(--desk);margin-bottom:22px;position:relative;overflow:hidden}
-.track i{position:absolute;inset:0 auto 0 0;background:var(--berry);transition:width .25s ease}
-.qtext{font-size:clamp(21px,5.6vw,25px);line-height:1.55;margin-bottom:6px}
-.qhint{font-size:12.5px;color:var(--faded);margin:0 0 18px}
-.opts{display:flex;flex-direction:column;gap:10px}
-.opt{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:center;text-align:left;padding:14px 14px;background:var(--paper);border:1px solid var(--line);
-  box-shadow:0 3px 10px rgba(64,56,47,.06);line-height:1.6;font-size:15px;font-weight:500;transition:transform .12s ease,box-shadow .12s ease,background .12s}
-.opt .mk{width:28px;height:28px;display:grid;place-items:center;border:1.5px solid var(--pencil);border-radius:50%;font-family:var(--hand);font-weight:600;font-size:13px}
-@media (hover:hover){.opt:hover{transform:translateX(2px);box-shadow:0 6px 14px rgba(64,56,47,.12)}}
-.opt[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--berry)}
-.opt[aria-pressed="true"] .mk{background:var(--berry);border-color:var(--berry);color:#fff}
-.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
-.linkbtn{font-size:13px;color:var(--faded);text-decoration:underline;text-underline-offset:3px;padding:8px 4px;min-height:40px}
-.linkbtn:disabled{visibility:hidden}
+.step-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.step{font-size:.8125rem;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.axis-pill{font-size:.75rem;font-weight:700;border:1px solid var(--ink);padding:3px 10px;border-radius:30px}
+.axis-pill.what{background:var(--pink)}
+.axis-pill.how{background:var(--sky)}
+.track{height:10px;border:1.5px solid var(--ink);border-radius:30px;background:#fff;overflow:hidden;margin-bottom:22px}
+.track i{display:block;height:100%;background:var(--lemon);border-right:1.5px solid var(--ink);transition:width .25s ease}
+.qtext{font-size:clamp(1.3125rem,5.4vw,1.625rem);font-weight:900;line-height:1.5;margin:0 0 6px;text-wrap:balance}
+.qhint{font-family:var(--hand);font-weight:600;font-size:.875rem;color:var(--muted);margin:0 0 18px}
+.opts{display:flex;flex-direction:column;gap:12px}
+.opt{display:grid;grid-template-columns:30px minmax(0,1fr);gap:12px;align-items:center;text-align:left;padding:13px 14px;background:#fff;border:1.5px solid var(--ink);border-radius:5px;
+  box-shadow:2px 3px 0 var(--ink);font-size:.9688rem;font-weight:500;line-height:1.6;transition:transform .12s ease,box-shadow .12s ease,background .12s ease}
+.opt .mk{width:30px;height:30px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:.8125rem;background:#fff}
+@media (hover:hover){.opt:hover{transform:translateY(-2px);box-shadow:2px 5px 0 var(--ink)}}
+.opt:active{transform:translate(1px,2px);box-shadow:1px 1px 0 var(--ink)}
+.opt[aria-pressed="true"]{background:var(--lemon)}
+.opt[aria-pressed="true"] .mk{background:var(--ink);color:#fff}
+.quiz-nav{display:flex;justify-content:space-between;margin-top:18px}
+.textbtn{font-family:var(--hand);font-weight:600;font-size:.875rem;border-bottom:1px solid var(--ink);padding:6px 0;min-height:40px;color:var(--ink)}
+.textbtn:disabled{visibility:hidden}
 
-/* 結果カード */
-.result{--accent:var(--berry)}
-.r-head{display:flex;justify-content:space-between;align-items:baseline}
-.r-no{font-family:var(--hand);font-weight:600;color:var(--accent);font-size:15px}
-.r-no b{font-size:30px}
-.r-top{display:grid;grid-template-columns:1fr;gap:16px;margin-top:8px}
-.r-top.has-photo{grid-template-columns:132px 1fr;align-items:start}
-.r-photo{position:relative;background:var(--paper);padding:6px 6px 22px;box-shadow:0 8px 18px rgba(64,56,47,.18);transform:rotate(-2deg)}
-.r-photo::before{content:"";position:absolute;width:52px;height:14px;background:var(--tape-mint);top:-6px;left:50%;transform:translateX(-50%) rotate(4deg);z-index:1}
-.r-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--sheet)}
-.r-photo span{position:absolute;left:0;right:0;bottom:3px;text-align:center;font-family:var(--hand);font-weight:600;font-size:11px;color:var(--faded)}
-.r-label{font-size:12px;color:var(--faded);font-weight:700;letter-spacing:.06em}
-.r-title{font-size:clamp(30px,8.4vw,40px);line-height:1.25;margin-top:2px;transform:rotate(-.6deg);transform-origin:left}
-.r-title em{font-style:normal;background:linear-gradient(transparent 64%,var(--accent-soft) 64%)}
-.r-catch{margin:10px 0 0;font-weight:700;font-size:16px;line-height:1.7}
-.r-line{position:relative;display:inline-block;margin-top:14px;padding:8px 14px;background:var(--desk);font-family:var(--hand);font-weight:600;font-size:15px}
-.r-line::before{content:"口癖";position:absolute;top:-10px;left:8px;font-family:var(--gothic);font-size:10px;font-weight:700;letter-spacing:.1em;background:var(--accent);color:#fff;padding:0 6px;line-height:18px}
-.r-body{margin:18px 0 0;white-space:pre-line;font-size:15px}
-.r-sec{margin-top:22px}
-.r-sec h3{font-size:16px;border-bottom:var(--dash);padding-bottom:4px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.r-sec h3 small{font-family:var(--gothic);font-size:11px;color:var(--faded);font-weight:500;letter-spacing:0}
-.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
-.checks li{position:relative;padding-left:26px;font-size:14.5px;line-height:1.65}
-.checks li::before{content:"";position:absolute;left:2px;top:.3em;width:15px;height:15px;border:1.5px solid var(--pencil)}
-.checks li::after{content:"";position:absolute;left:6px;top:.15em;width:6px;height:11px;border:solid var(--accent);border-width:0 2.5px 2.5px 0;transform:rotate(40deg)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.memo{background:var(--desk);padding:12px 12px 10px}
-.memo b{display:block;font-size:12px;letter-spacing:.06em;margin-bottom:4px}
-.memo ul{margin:0;padding-left:1.1em;font-size:13.5px;line-height:1.7}
-.bars{display:flex;flex-direction:column;gap:8px}
-.bar{display:grid;grid-template-columns:9.6em 1fr 2.6em;gap:8px;align-items:center;font-size:13px}
-.bar .nm{font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bar .tr{height:10px;background:var(--desk);position:relative}
-.bar .tr i{position:absolute;inset:0 auto 0 0;background:var(--sheet);transition:width .8s cubic-bezier(.2,.8,.2,1)}
-.bar.main .tr i{background:var(--accent)}
-.bar.sub .tr i{background:var(--pink)}
-.bar .pc{text-align:right;font-variant-numeric:tabular-nums;color:var(--faded);font-size:12px}
-.more{font-size:12.5px;color:var(--faded);margin-top:6px}
-.hunt{border:var(--dash);padding:14px}
-.hunt p.t{margin:0;font-family:var(--hand);font-weight:600;font-size:17px;line-height:1.5}
-.hunt p.d{margin:6px 0 0;font-size:14px}
-.sub-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.sub-pair .memo p{margin:2px 0 0;font-size:13px;line-height:1.65}
-.sub-pair .memo .nm{font-family:var(--hand);font-weight:600;font-size:15px}
-.r-foot{margin-top:22px;padding-top:12px;border-top:var(--dash);display:flex;justify-content:space-between;font-size:12px;color:var(--faded)}
+/* 結果 */
+.result{--tint:var(--lemon)}
+.r-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.r-stamp{flex-shrink:0;border:1.5px solid var(--ink);padding:5px 10px;text-align:center;transform:rotate(5deg);font-size:.6875rem;letter-spacing:.12em;line-height:1.3;background:var(--tint)}
+.r-stamp strong{display:block;font-size:1.5rem;font-weight:500;letter-spacing:.02em}
+.r-pre{font-family:var(--hand);font-weight:600;font-size:1.125rem;margin:0}
+.r-title{font-size:clamp(2rem,8.4vw,2.75rem);font-weight:900;line-height:1.25;margin:2px 0 0}
+.r-combo{margin:14px 0 0;padding:10px 14px;background:var(--tint);border:1.5px solid var(--ink);border-radius:5px;font-family:var(--hand);font-weight:600;font-size:1rem;line-height:1.65}
+.r-catch{margin:14px 0 0;font-weight:700;font-size:1.0625rem;line-height:1.7}
+.r-line{display:inline-flex;align-items:baseline;gap:8px;margin-top:12px;font-family:var(--hand);font-weight:600}
+.r-line small{font-family:var(--sans);font-size:.6875rem;font-weight:700;letter-spacing:.08em;background:var(--ink);color:#fff;padding:1px 7px;border-radius:30px;transform:translateY(-2px)}
+.r-photo{float:right;width:118px;margin:4px 0 8px 14px;background:#fff;border:1.5px solid var(--ink);padding:5px 5px 20px;box-shadow:3px 4px 0 var(--ink);transform:rotate(3deg);position:relative}
+.r-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.r-photo span{position:absolute;left:0;right:0;bottom:1px;text-align:center;font-family:var(--hand);font-weight:600;font-size:.6875rem}
+.r-body{margin:16px 0 0;white-space:pre-line;font-size:.9688rem}
+.r-sec{margin-top:24px;clear:both}
+.r-sec h3{font-size:1.0625rem;font-weight:900;margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.r-sec h3 small{font-family:var(--hand);font-weight:600;font-size:.8125rem;color:var(--muted)}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.checks li{position:relative;padding-left:30px;font-size:.9375rem;line-height:1.6}
+.checks li::before{content:'';position:absolute;left:0;top:.15em;width:19px;height:19px;border:1.5px solid var(--ink);border-radius:4px;background:var(--tint)}
+.checks li::after{content:'';position:absolute;left:6px;top:.28em;width:6px;height:11px;border:solid var(--ink);border-width:0 2.5px 2.5px 0;transform:rotate(40deg)}
+.bars-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bars{border:1.5px solid var(--ink);border-radius:5px;padding:12px;display:flex;flex-direction:column;gap:7px;min-width:0}
+.bars b{font-size:.75rem;letter-spacing:.08em;margin-bottom:2px}
+.bar{display:grid;grid-template-columns:minmax(0,1fr) 2.6em;gap:6px;align-items:center;font-size:.8125rem}
+.bar .nm{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .pc{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted);font-size:.75rem}
+.bar .tr{grid-column:1/-1;height:9px;border:1px solid var(--ink);border-radius:30px;background:#fff;overflow:hidden}
+.bar .tr i{display:block;height:100%;background:var(--line);transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.bar.top .tr i{background:var(--c,var(--tint))}
+.bar.dim{color:var(--muted)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.memo{border:1.5px solid var(--ink);border-radius:5px;padding:12px;min-width:0}
+.memo b{display:block;font-size:.75rem;letter-spacing:.08em;margin-bottom:4px}
+.memo ul{margin:0;padding-left:1.1em;font-size:.875rem;line-height:1.7}
+.memo .nm{display:block;font-weight:900;font-size:1rem}
+.memo p{margin:2px 0 0;font-size:.8438rem;line-height:1.65;color:var(--muted)}
+.memo.c1{background:var(--pink)} .memo.c2{background:var(--sky)}
+.hunt{border:1.5px dashed var(--ink);border-radius:5px;padding:14px;background:#fff}
+.hunt .t{margin:0;font-weight:900;font-size:1.0625rem;line-height:1.5}
+.hunt .d{margin:6px 0 0;font-size:.9063rem}
+.r-foot{margin-top:24px;padding-top:12px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);letter-spacing:.04em}
 
-/* 保存・シェア */
-.actions{display:flex;flex-direction:column;gap:10px}
-.actions .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.photo-pick{display:flex;align-items:center;gap:12px;padding:12px;border:var(--dash);background:rgba(255,255,255,.6)}
-.photo-pick .tx{flex:1;font-size:13px;line-height:1.6}
-.photo-pick .tx b{display:block;font-size:14px}
+.actions{display:flex;flex-direction:column;gap:12px}
+.actions .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.actions .row .btn{padding-inline:10px;font-size:.9375rem;white-space:nowrap}
+.photo-pick{display:flex;align-items:center;gap:12px;padding:12px;border:1.5px dashed var(--ink);border-radius:5px;background:#fff}
+.photo-pick .tx{flex:1;min-width:0;font-size:.8125rem;line-height:1.6;color:var(--muted)}
+.photo-pick .tx b{display:block;font-size:.9375rem;color:var(--ink)}
 .photo-pick input{position:absolute;width:1px;height:1px;opacity:0}
-.photo-pick label{flex:0 0 auto}
+.photo-pick label{min-height:42px;padding:6px 16px;cursor:pointer;flex-shrink:0}
 
 /* タイプ一覧 */
-.list{display:flex;flex-direction:column;gap:0}
-.list details{border-top:var(--dash)}
-.list details:last-child{border-bottom:var(--dash)}
-.list summary{list-style:none;display:grid;grid-template-columns:2.4em 1fr auto;gap:8px;align-items:baseline;padding:12px 2px;cursor:pointer}
-.list summary::-webkit-details-marker{display:none}
-.list summary .n{font-family:var(--hand);font-weight:600;color:var(--berry)}
-.list summary .t{font-family:var(--hand);font-weight:600;font-size:16px}
-.list summary .x{font-size:12px;color:var(--faded)}
-.list details[open] summary .x{transform:rotate(45deg)}
-.list details p{margin:0 0 12px 2.9em;font-size:13.5px;line-height:1.7}
-.list details.me summary .t::after{content:"あなた";font-family:var(--gothic);font-size:10px;font-weight:700;color:#fff;background:var(--berry);padding:1px 6px;margin-left:8px;vertical-align:3px}
+.list h2{font-size:1.375rem;font-weight:900;margin:0}
+.list .sub{font-size:.875rem;color:var(--muted);margin:4px 0 14px}
+.types{display:flex;flex-direction:column;gap:10px}
+.types details{border:1.5px solid var(--ink);border-radius:5px;background:#fff}
+.types summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;font-weight:900}
+.types summary::-webkit-details-marker{display:none}
+.types summary i{font-style:normal;font-weight:500;font-size:.75rem;border:1px solid var(--ink);border-radius:30px;padding:1px 9px;background:#fff;white-space:nowrap}
+.types details[open] summary{border-bottom:1px dashed var(--line)}
+.types details p{margin:0;padding:10px 14px 12px;font-size:.875rem;line-height:1.7}
+.types details.me summary{background:var(--lemon)}
+.whats{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.whats span{font-size:.8125rem;font-weight:700;border:1px solid var(--ink);border-radius:30px;padding:3px 11px}
 
-/* モーダル */
-.modal{position:fixed;inset:0;z-index:30;background:rgba(64,56,47,.55);display:flex;align-items:flex-end;justify-content:center;padding:16px}
-.sheet{background:var(--desk);width:min(520px,100%);max-height:calc(100dvh - 32px);overflow:auto;padding:18px 16px calc(16px + env(safe-area-inset-bottom,0));display:flex;flex-direction:column;gap:12px}
-.sheet img{width:100%;height:auto;display:block;box-shadow:var(--shadow);background:#fff;-webkit-touch-callout:default}
-.sheet .hint{font-size:12.5px;color:var(--faded);text-align:center;margin:0}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--pencil);color:var(--paper);padding:9px 16px;font-size:13px;
-  box-shadow:var(--shadow);max-width:calc(100% - 32px);z-index:40}
-.disclaimer{font-size:11.5px;color:var(--faded);text-align:center;margin:0}
+.disclaimer{font-size:.75rem;color:var(--muted);text-align:center;margin:4px 0 0;line-height:1.8}
 
-.fade-in{animation:fade .35s ease both}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media (max-width:380px){.two,.sub-pair{grid-template-columns:1fr}.r-top.has-photo{grid-template-columns:110px 1fr}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.modal{position:fixed;inset:0;z-index:30;background:rgba(40,37,54,.6);display:flex;align-items:flex-end;justify-content:center;padding:16px}
+.sheet{background:var(--bg);border:1.5px solid var(--ink);border-radius:5px;width:min(520px,100%);max-height:calc(100dvh - 32px);overflow:auto;padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:12px}
+.sheet img{width:100%;height:auto;display:block;border:1.5px solid var(--ink);-webkit-touch-callout:default}
+.sheet .hint{font-family:var(--hand);font-weight:600;font-size:.875rem;text-align:center;margin:0}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:30px;font-size:.8125rem;font-weight:700;max-width:calc(100% - 32px);z-index:40}
+
+.pop{animation:pop .3s ease both}
+@keyframes pop{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (max-width:480px){.bars-wrap,.duo{grid-template-columns:1fr}}
+@media (max-width:359px){.axes{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="site-head">
-    <a class="sticker" href="https://rikomuze.github.io/muze-tool-box/"><b>Muze Tool Box</b> <span>♡</span></a>
-    <nav class="tool-nav" aria-label="MUZE TOOL BOX 共通ナビ">
-      <a href="https://rikomuze.github.io/muze-tool-box/">MUZE TOOL BOXのトップ</a>
-      <a href="https://rikomuze.github.io/mazzel-best-visual/">アー写編９マス</a>
-      <a href="https://rikomuze.github.io/mazzel-best-visual-performance/">パフォ衣装編９マス</a>
-      <a href="https://rikomuze.github.io/oshi-visual-6/">推しビジュ6選</a>
-      <a href="https://rikomuze.github.io/otaku-numa-shindan/" aria-current="page">オタクタイプ診断</a>
-      <a href="https://rikomuze.github.io/mazzel-touch-campaign/">新曲キャンペーン</a>
-    </nav>
-  </header>
+<nav class="global-nav" aria-label="PLAY ROOM">
+  <a class="brand" href="https://rikomuze.github.io/muze-tool-box/play-room/">PLAY ROOM</a>
+  <span class="current">オタク沼タイプ診断</span>
+</nav>
 
-  <!-- イントロ -->
-  <section class="paper taped intro" id="intro">
-    <p class="kicker">OTAKU NUMA TYPE</p>
-    <h1>オタク<em>沼タイプ</em>診断</h1>
-    <p class="lead">終演後の過ごし方、カメラロールの中身、布教のクセ。<br>12問に答えると、あなたの“沼り方”と、何でできているかの沼成分がわかります。</p>
-    <ul class="meta"><li>全12問</li><li>約2分</li><li>8タイプ</li><li>推し写真入りカード</li></ul>
-    <button class="btn wide" id="startBtn" type="button">診断をはじめる</button>
-    <div class="types-peek" aria-label="8つの沼タイプ" id="peek"></div>
+<main class="shell">
+  <!-- はじめに -->
+  <section id="intro">
+    <p class="tag">FIND YOUR TYPE</p>
+    <h1>オタク<span class="hl">沼タイプ</span>診断</h1>
+    <p class="intro-note">あなたは何に沸いて、どう沼っている？</p>
+    <p class="intro-lead">供給の受け取り方、終演後の過ごし方、カメラロールの中身。12問に答えると、沸きポイントと沼り方の組み合わせで、20通りのタイプがわかります。</p>
+    <div class="axes">
+      <div class="axis"><b>何に沸く？</b><span>パフォ・ビジュ・ケミ・人柄</span></div>
+      <div class="axis"><b>どう沼る？</b><span>浸る・掘る・残す・広める・騒ぐ</span></div>
+    </div>
+    <ul class="chips"><li>全12問</li><li>約2分</li><li>推し写真入りカード</li></ul>
+    <button class="btn primary big" id="startBtn" type="button" style="margin-top:20px">診断をはじめる</button>
   </section>
 
   <!-- 設問 -->
-  <section class="paper taped" id="quiz" hidden aria-live="polite">
-    <div class="quiz-top"><span class="qno" id="qno"></span><span class="qcount" id="qcount"></span></div>
-    <div class="track" aria-hidden="true"><i id="qbar"></i></div>
+  <section class="card pad" id="quiz" hidden aria-live="polite">
+    <div class="step-row"><span class="step" id="step"></span><span class="axis-pill" id="axisPill"></span></div>
+    <div class="track" aria-hidden="true"><i id="bar" style="width:0"></i></div>
     <h2 class="qtext" id="qtext"></h2>
     <p class="qhint">いちばん近いものを、直感でひとつ。</p>
     <div class="opts" id="opts"></div>
     <div class="quiz-nav">
-      <button class="linkbtn" id="backBtn" type="button">← ひとつ前へ</button>
-      <button class="linkbtn" id="quitBtn" type="button">最初からやり直す</button>
+      <button class="textbtn" id="backBtn" type="button">ひとつ前へ</button>
+      <button class="textbtn" id="restartBtn" type="button">最初からやり直す</button>
     </div>
   </section>
 
   <!-- 結果 -->
-  <section id="resultWrap" hidden>
-    <article class="paper taped result fade-in" id="result" aria-live="polite"></article>
-  </section>
+  <article class="card pad result" id="result" hidden aria-live="polite"></article>
 
-  <section class="paper" id="actions" hidden>
+  <section class="card pad" id="actions" hidden>
     <div class="actions">
       <div class="photo-pick">
-        <div class="tx"><b>推し写真を入れる</b><span id="photoStatus">カードと保存画像に入ります（任意）。写真はこの端末の中だけで使われます。</span></div>
-        <label class="btn ghost" for="photoInput">選ぶ</label>
+        <div class="tx"><b>推し写真を入れる</b><span id="photoStatus">結果カードと保存画像に入ります（任意）。写真はこの端末の中だけで使われます。</span></div>
+        <label class="btn" for="photoInput">選ぶ</label>
         <input type="file" id="photoInput" accept="image/*">
       </div>
-      <button class="btn wide" id="saveBtn" type="button">結果カードを画像にする</button>
+      <button class="btn primary big" id="saveBtn" type="button">結果カードを画像にする</button>
       <div class="row">
-        <button class="btn ghost" id="copyBtn" type="button">テキストをコピー</button>
-        <button class="btn ghost" id="retryBtn" type="button">もう一回やる</button>
+        <button class="btn" id="copyBtn" type="button">テキストをコピー</button>
+        <button class="btn" id="retryBtn" type="button">もう一回やる</button>
       </div>
     </div>
   </section>
 
-  <section class="paper" id="typesSec">
-    <h2 style="font-size:20px">8つの沼タイプ</h2>
-    <p style="margin:4px 0 12px;font-size:13px;color:var(--faded)">友達はどの沼？ タップで中身が見られます。</p>
-    <div class="list" id="typeList"></div>
+  <section class="list" id="typesSec">
+    <h2>沼タイプ一覧</h2>
+    <p class="sub">5つの沼り方 × 4つの沸きポイント。友達はどの組み合わせ？</p>
+    <div class="types" id="typeList"></div>
+    <div class="whats" id="whatList" aria-label="沸きポイント"></div>
   </section>
 
-  <p class="disclaimer">ファンが作った非公式の遊びです。結果は当たっても外れても、どの沼も楽しい沼。</p>
-</div>
+  <p class="disclaimer">MAZZEL・BMSG公式とは関係のない、非公式ファンメイドの遊びです。<br>どの沼も、楽しい沼。</p>
+</main>
 
 <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-label="結果画像">
   <div class="sheet">
     <img id="modalImg" alt="診断結果カードの画像">
-    <p class="hint" id="modalHint">画像を長押しすると保存できます。</p>
-    <button class="btn wide" id="shareImgBtn" type="button" hidden>画像を共有する</button>
-    <button class="btn ghost wide" id="dlBtn" type="button">画像をダウンロード</button>
-    <button class="btn ghost wide" id="closeBtn" type="button">閉じる</button>
+    <p class="hint">画像を長押しすると保存できます。</p>
+    <button class="btn primary" id="shareImgBtn" type="button" hidden>画像を共有する</button>
+    <button class="btn" id="dlBtn" type="button">画像をダウンロード</button>
+    <button class="btn" id="closeBtn" type="button">閉じる</button>
   </div>
 </div>
 
 <script>
-/* ============ タイプ ============ */
-var TYPES = {
-  memory: {
-    n:'01', t:'現場反芻型', color:'#e27a94',
+/* =========================================================
+   2軸で判定する
+   ・何に沸く？（WHAT）… perf / visual / chemi / word
+   ・どう沼る？（HOW） … replay / dig / keep / spread / party
+   どの設問も、その軸の全タイプを選択肢に並べる。
+   ＝「自分のタイプが選択肢にない設問」が起きないので、答えた通りの結果になる。
+   ========================================================= */
+
+var WHAT = {
+  perf:   { name:'パフォ沼', short:'歌・ダンス・ステージ',
+            hunt:'ステージで別人になる推し',
+            huntBody:'ふだんはふにゃっとしているのに、イントロが鳴った瞬間に目つきが変わる。実力で殴ってくるので、何回見ても無傷では帰れない。',
+            wake:['ライブ映像','ダンスプラクティス','推しの定点・ソロカット'] },
+  visual: { name:'ビジュ沼', short:'顔・髪型・衣装',
+            hunt:'写真1枚で黙らせてくる推し',
+            huntBody:'新しいビジュが出るたびに「優勝」を更新してくる。「パフォで好きになったんだけどね」と言い訳する回数が、増える一方。',
+            wake:['アー写・ジャケ写','オフショット','MVのアップカット'] },
+  chemi:  { name:'ケミ沼', short:'メンバー同士の関係性',
+            hunt:'特定のメンバーにだけ甘くなる推し',
+            huntBody:'誰にでも優しい人より、特定のメンバーにだけ雑で、特定のメンバーにだけ甘える人。距離感の差が見えるたびに、まんまとやられる。',
+            wake:['メイキング・裏側映像','グループでの配信','ラジオやバラエティ'] },
+  word:   { name:'人柄沼', short:'言葉・人柄・成長',
+            hunt:'不器用だけどまっすぐな推し',
+            huntBody:'言葉選びは上手じゃなくても、話すことに嘘がない。誠実さがあとから効いてきて、気づいたら激重感情。',
+            wake:['ロングインタビュー','本人のコメント・ブログ','ドキュメンタリー'] }
+};
+var WHAT_ORDER = ['perf','visual','chemi','word'];
+
+var HOW = {
+  replay: { n:'01', name:'余韻反芻型', verb:'浸る', color:'#ffd5df',
     c:'終演した瞬間から、脳内で2公演目が始まるオタク。',
     line:'待って、記憶ないんだけど',
-    b:'規制退場を待ちながら「記憶ない」を3回は言うタイプ。なのに帰りの電車で、MCの一言、あの曲の目線の向き、イヤモニを外した瞬間まで、異常な精度で思い出してくる。\n\nレポを読んで「そうそれ！」と声が出て、同行者とファミレスで答え合わせ。ペンライトの電池が切れても、余韻だけで次の現場まで生きられます。',
-    habits:['規制退場の列で、もう泣いている','帰りの電車でセトリと記憶をメモに打つ','翌朝、筋肉痛と喪失感で目が覚める'],
-    wake:['現場そのもの','MCレポ','公式のライブ写真'],
-    sns:['記憶の断片だけを小出しに呟く','他の人のレポで2回目の開演'],
-    huntTitle:'生で見ると情報量がバグる推し',
-    huntBody:'映像では伝わりきらない熱量、汗、目線。一度現場で食らうと、もう配信だけでは満足できない体にしてくる。',
-    pair:'context', pairWhy:'記憶の断片に、あとから意味をつけてくれる答え合わせ相手。'
-  },
-  creator: {
-    n:'02', t:'布教クリエイター型', color:'#e8954f',
+    b:'規制退場を待ちながら「記憶ない」を3回は言うタイプ。なのに帰りの電車では、MCの一言や推しの目線の向きまで、異常な精度で思い出してくる。\n\n公式のライブ写真が出るたびに記憶が上書きされて、また頭を抱える。ペンライトの電池が切れても、余韻だけで次の現場まで生きられます。',
+    habits:['規制退場の列で、もう泣いている','帰りの電車で、セトリを見ながら記憶を巻き戻す','翌朝、筋肉痛と喪失感で目が覚める'],
+    sns:['記憶の断片を、思い出したときに小出しに呟く','ほかの人のレポで、2回目の開演'],
+    pair:'party', pairWhy:'終演後のファミレスで、記憶の答え合わせに付き合ってくれる。' },
+  dig: { n:'02', name:'深掘り考察型', verb:'掘る', color:'#ded7ff',
+    c:'ひとつの供給を、いつまでも掘り続けるオタク。',
+    line:'ちょっと待って、ここ巻き戻させて',
+    b:'供給をさらっと流せないタイプ。再生速度を落とし、過去の映像やインタビューと見比べて、「去年の配信で話していたことと繋がってない？」と気づいた瞬間に情緒が崩れます。\n\n誰も話題にしていない一瞬を見つけるのが得意で、気づけば長文の下書きが溜まっている。推しの変化と成長に、いちばん敏感なオタクです。',
+    habits:['0.25倍速を日常的に使っている','推しの発言を、だいたいの日付つきで覚えている','長文の下書きが、メモアプリに溜まっていく'],
+    sns:['秒数を指定して語る','長文の感想を、スクショで投稿する'],
+    pair:'replay', pairWhy:'現場の細部を覚えていてくれるから、考察の材料が尽きない。' },
+  keep: { n:'03', name:'アーカイブ職人型', verb:'残す', color:'#fff0c9',
+    c:'好きな瞬間を、ひとつ残らず手元に残したいオタク。',
+    line:'記念だから（n回目）',
+    b:'スクショ、トレカ、チケットの半券、銀テ。全部が現場の記憶とセットで保存されているタイプ。届いて沸いて、並べて沸いて、整理しながらまた沸きます。\n\nカメラロールとストレージは常にギリギリ。物を集めているようで、本当は推し活の日々ごと保存しています。',
+    habits:['銀テは必ず持ち帰る','画像フォルダが、時期別・衣装別に分かれている','トレカのスリーブは二重'],
+    sns:['開封報告と自引き報告をする','祭壇やトレカファイルの写真を載せる'],
+    pair:'dig', pairWhy:'集めた供給に、日付と意味をつけて語ってくれる。' },
+  spread: { n:'04', name:'布教クリエイター型', verb:'広める', color:'#cfe3ff',
     c:'好きになった3秒後には、布教ルートを組んでいるオタク。',
     line:'まずこの30秒だけ見て',
-    b:'相手の好みを聞いてから入口を出し分けるタイプ。ビジュが好きな子にはアー写、パフォ好きにはダンプラ、関係性が好きな子には裏側コンテンツ。布教にちゃんと導線がある。\n\n初見向けのまとめ画像、用途別の再生リスト、メンバー紹介。作っているうちに自分がいちばん深く沈むのはお約束です。',
-    habits:['布教用の再生リストが用途別にある','人の「ちょっと気になる」を絶対に聞き逃さない','「落ちた」報告をもらう日がいちばん幸せ'],
-    wake:['初見向けの動画','代表曲','ギャップが伝わる切り抜き'],
-    sns:['新規さん向けまとめを作って固定する','「いらっしゃい」と全力で歓迎する'],
-    huntTitle:'初見を一撃で落とす推し',
-    huntBody:'短い動画ひとつで「え、この人誰？」と言わせる。布教の勝率を一気に上げてくれる、頼もしすぎる存在。',
-    pair:'community', pairWhy:'布教した先で全員好きになって、沼を広げてくれる。'
-  },
-  performance: {
-    n:'03', t:'パフォ解像度型', color:'#5b8fd6',
-    c:'同じ映像を100回見て、101回目に新発見するオタク。',
-    line:'1:42からのとこ見て。話はそれから',
-    b:'再生バーを0.5秒単位で行き来するタイプ。歌い出し前の息の吸い方、振りの止め、フォーメーション移動中の一瞬の目線。誰も話題にしていないところで、ひとりだけ倒れています。\n\n秒数指定で語り始めたら止まらない。ダンプラが出た日は、その日の予定が全部うしろにずれます。',
-    habits:['0.25倍速を日常的に使っている','イヤホンで歌割りを聴き分けている','他のメンバーのパート中も推しを探してしまう'],
-    wake:['ライブ映像','ダンスプラクティス','推しの定点・ソロカット'],
-    sns:['秒数指定で沸く','同じ映像の感想を毎回新鮮に語る'],
-    huntTitle:'ステージで別人になる推し',
-    huntBody:'普段はふにゃっとしているのに、イントロが鳴った瞬間に目つきが変わる。実力で殴ってくるので、何回見ても無傷では帰れない。',
-    pair:'visual', pairWhy:'同じ映像の、まったく違う一瞬で一緒に沸ける。'
-  },
-  relation: {
-    n:'04', t:'関係性回収型', color:'#9a7bd1',
-    c:'推しより先に、推しの隣を見てしまうオタク。',
-    line:'今の見た？？？？',
-    b:'推し単体ももちろん好き。でもいちばん効くのは、特定の相手といるときだけ出る顔。目配せ、肩に置いた手、二人にしか通じない内輪ノリで情緒が終わります。\n\n本人たちはただ普通に話しているだけ。なのにこちらは、過去の共演まで遡って関係性の年表を作り始めている。',
-    habits:['集合写真は立ち位置から見る','組み合わせ名で検索して過去ログを掘る','配信の奥に映り込んだ二人に気づいてしまう'],
-    wake:['メイキング・裏側映像','集合配信','ラジオやバラエティのやりとり'],
-    sns:['「この二人の距離感」を引用で語る','組み合わせ名のタグを巡回する'],
-    huntTitle:'特定の相手にだけ甘くなる推し',
-    huntBody:'誰にでも優しいより、あの人にだけ雑で、あの人にだけ甘える。そのバグった距離感に、毎回まんまとやられる。',
-    pair:'collector', pairWhy:'「あの二人のあの回」を、すぐに出してくれる生き字引。'
-  },
-  visual: {
-    n:'05', t:'ビジュ保存職人型', color:'#d4699a',
-    c:'新ビジュ解禁から保存完了まで、0.5秒のオタク。',
-    line:'顔がいい（本日n回目）',
-    b:'解禁の通知が来た瞬間、思考より先に親指が動くタイプ。髪型、メイク、衣装、角度、光。全部チェックして「はい優勝」「墓建てた」を毎回ちゃんと言います。\n\nカメラロールは推しで飽和、ストレージ不足の通知は見ないふり。アー写1枚で一週間は生きられます。',
-    habits:['スクショのために一時停止を連打する','解禁時間は通知オンで待機している','画像フォルダが時期別・髪型別に分かれている'],
-    wake:['アー写・ジャケ写','オフショット','MVのアップカット'],
-    sns:['画像4枚に「顔」とだけ添える','「この時期の髪型が一番」論争に参戦する'],
-    huntTitle:'写真1枚で黙らせてくる推し',
-    huntBody:'新ビジュが出るたびに「優勝」を更新してくる。「パフォで好きになったんだけどね」と言い訳する回数が、増える一方。',
-    pair:'performance', pairWhy:'あなたが止めた1コマの、前後の動きまで語ってくれる。'
-  },
-  context: {
-    n:'06', t:'文脈考察型', color:'#4f9a86',
-    c:'推しの何気ない一言で、半年分の伏線を回収するオタク。',
-    line:'これ、あの時の伏線では？',
-    b:'インタビューの一文を、さらっと流せないタイプ。「今の、去年の配信で言ってたことと繋がってない？」と気づいた瞬間に情緒が崩れます。\n\n歌詞、本人コメント、ドキュメンタリー、過去の発言。全部が一本の線になったとき、気づけば3000字の長文が下書きに増えている。推しの成長を、いちばん泣きながら見ているのはあなたです。',
-    habits:['雑誌はインタビューのページから読む','推しの発言を、だいたいの日付つきで覚えている','長文の下書きが溜まっていく'],
-    wake:['インタビュー','歌詞・本人コメント','ドキュメンタリー'],
-    sns:['長文の感想をスクショで投稿する','本人の言葉を引用して、静かに泣く'],
-    huntTitle:'不器用だけどまっすぐな推し',
-    huntBody:'言葉選びは上手じゃなくても、話すことに嘘がない。その誠実さがあとから効いてきて、気づいたら激重感情。',
-    pair:'memory', pairWhy:'現場の細部を覚えていてくれるから、考察の材料が尽きない。'
-  },
-  collector: {
-    n:'07', t:'アーカイブ収集型', color:'#c49a3c',
-    c:'推し活の日々を、まるごと手元に残したいオタク。',
-    line:'記念だから（n回目）',
-    b:'トレカ、チケットの半券、銀テ、特典。全部がその日の記憶とセットで保存されているタイプ。届いて沸いて、並べて沸いて、スリーブに入れてまた沸きます。\n\n物を集めているようで、本当は推し活の日々ごと保存している。「記念だから」を合言葉に、収納ケースが今日も増える。',
-    habits:['銀テは必ず持ち帰る','トレカのスリーブは二重','開封のときは手を洗ってから'],
-    wake:['トレカ・ランダムグッズ','ライブグッズ','円盤と特典'],
-    sns:['開封報告と自引き報告をする','祭壇やファイルの写真を載せる'],
-    huntTitle:'手元に置きたくなる推し',
-    huntBody:'どのグッズになっても絵になる。トレカの絵柄が全部当たりだから、選べなくてコンプするしかない。',
-    pair:'relation', pairWhy:'並べたトレカの組み合わせに、物語をつけてくれる。'
-  },
-  community: {
-    n:'08', t:'箱推し化型', color:'#6aa86a',
-    c:'単推しのつもりが、気づいたら全員好きになっているオタク。',
-    line:'全員優勝',
-    b:'最初は確かにひとりだった。なのにメンバー同士の空気を知り、他のメンバーの人柄を知り、気づけばグループごと抱えているタイプ。推しの話をしていたはずが、いつの間にか全員の話をしています。\n\nファンの沸きも、現場の一体感も、TLのお祭り騒ぎも好き。誰かが楽しそうに沸いているだけで、自分まで元気になれる平和なオタクです。',
-    habits:['「今日の推し」が日替わりで増える','他のメンバーのファンの感想も喜んで読む','グループの記念日を全部覚えている'],
-    wake:['集合コンテンツ','グループ企画・生配信','ファン参加型の企画'],
-    sns:['みんなの感想をひたすらリポストする','トレンド入りを一緒にお祭りする'],
-    huntTitle:'全員好きにさせてくる推し',
-    huntBody:'本人が楽しそうなだけで、周りまでかわいく見えてくる。メンバー愛が強すぎて、気づけばグループごと落とされている。',
-    pair:'creator', pairWhy:'楽しそうな空気を、新規さんの入口に変えてくれる。'
-  }
+    b:'相手の好みを聞いてから、入口を出し分けるタイプ。ビジュが好きな子にはアー写、パフォが好きな子にはダンプラ、関係性が好きな子には裏側コンテンツ。布教にちゃんと導線がある。\n\n初見向けのまとめ画像、用途別の再生リスト、メンバー紹介。作っているうちに、自分がいちばん深く沈むのはお約束です。',
+    habits:['布教用の再生リストが、用途別にある','友達の「ちょっと気になる」を絶対に聞き逃さない','「落ちた」報告をもらう日が、いちばん幸せ'],
+    sns:['新規さん向けのまとめを作って固定する','新規さんを全力で歓迎する'],
+    pair:'keep', pairWhy:'布教に使える画像も映像も、だいたい持っている。' },
+  party: { n:'05', name:'オタ友わいわい型', verb:'騒ぐ', color:'#dcefa5',
+    c:'推し活は、オタ友と騒いでこそ完成するオタク。',
+    line:'今から通話できる人いる！？',
+    b:'供給が来たら、まずオタ友とのグループLINEに投げるタイプ。ひとりで見るより、「無理」「待って」を言い合いながら見るほうが何倍も楽しい。\n\n連番、終演後のファミレス感想戦、お揃いのグッズ、推しの曲縛りのカラオケ。推しの話ができる友達がいる限り、どんな供給も2倍おいしくなります。',
+    habits:['オタ友とのグループLINEの通知が鳴りやまない','遠征は、ホテルも感想戦も一緒','推しの曲縛りのカラオケで、喉が終わる'],
+    sns:['通話やスペースで同時視聴する','オタ友とリプ欄で叫び合う'],
+    pair:'spread', pairWhy:'盛り上がりついでに、新しいオタ友を連れてきてくれる。' }
 };
-var ORDER = ['memory','creator','performance','relation','visual','context','collector','community'];
+var HOW_ORDER = ['replay','dig','keep','spread','party'];
 
-/* ============ 設問：[選択肢, メイン(+2), サブ(+1)] 各タイプがメイン6回・サブ6回で均等 ============ */
+/* 沸きポイント × 沼り方 の20通り */
+var COMBO = {
+  perf:   { replay:'推しのダンスの残像だけで、帰りの電車を乗り切れる。',
+            dig:'ダンプラの止めの位置まで覚えている、パフォ研究家。',
+            keep:'ライブ映像の神カットを、秒数つきでメモに残している。',
+            spread:'布教の一手目は、いつもいちばん強いライブ映像。',
+            party:'オタ友と同じ映像を見て、同じ秒数で叫ぶのが至福。' },
+  visual: { replay:'現場で見た推しのビジュが、何日経っても目に焼きついている。',
+            dig:'前髪の長さで、撮影時期を当てられる。',
+            keep:'カメラロールの8割が推しの顔。それでもまだ足りない。',
+            spread:'「とりあえず顔を見て」で、何人も沼に落としてきた。',
+            party:'新ビジュ解禁の瞬間、オタ友と「顔！！」しか言えなくなる。' },
+  chemi:  { replay:'MCでのメンバー同士のやりとりを、帰り道に何度も再生している。',
+            dig:'組み合わせ名で過去ログを掘って、関係性の年表が作れる。',
+            keep:'メンバー同士が並んだトレカは、ファイルの特等席。',
+            spread:'関係性がわかる動画で、友達をグループごと沼に落とす。',
+            party:'メンバー同士の絡みが出るたび、オタ友と「今の見た！？」で大騒ぎ。' },
+  word:   { replay:'推しがMCで話した言葉を、何度も思い出しては泣いている。',
+            dig:'推しの一言で、半年分の伏線を回収できる。',
+            keep:'インタビューのスクショと雑誌の切り抜きが、宝物。',
+            spread:'推しの言葉を引用して、人柄から布教していく。',
+            party:'オタ友と推しの名言を語り合う夜が、いちばん長い。' }
+};
+
+/* 設問：axis と、各タイプに対応する選択肢。w は決め手の設問（同点のときに効く） */
 var QUESTIONS = [
-  { q:'「沼に落ちた瞬間」に、いちばん近いのは？', a:[
-    ['何気なく再生したパフォ映像を、気づいたら3周していた','performance','visual'],
-    ['TLに流れてきた写真1枚で、時が止まった','visual','collector'],
-    ['メンバー同士のわちゃわちゃ動画で、関係性ごと好きになった','relation','community'],
-    ['インタビューで話していた言葉が、ずっと頭から離れなかった','context','memory'] ]},
-  { q:'新しい供給が投下された。最初の5分でやることは？', a:[
-    ['再生速度を落として、気になった秒数をメモする','performance','context'],
-    ['一時停止とスクショを連打。気づけば40枚','visual','collector'],
-    ['「これ見て」と友達のDMに放り込む','creator','community'],
-    ['TLを開いて、みんなが沸いているのを見て一緒に沸く','community','creator'] ]},
-  { q:'終演後、規制退場を待っているあなたは？', a:[
-    ['「待って記憶ない」を連呼しながら、脳内で本編を再生している','memory','performance'],
-    ['拾った銀テと、買ったグッズの無事を確認している','collector','memory'],
-    ['隣の席の人と「やばかったですね…」と言い合っている','community','creator'],
-    ['今日のMCで言っていたことの意味を、もう考え始めている','context','relation'] ]},
-  { q:'帰りの電車。最初にスマホでやることは？', a:[
-    ['忘れる前に、セトリと覚えている瞬間をメモに打つ','memory','context'],
-    ['イヤホンで今日の曲を流して、あの振りを脳内再生','performance','memory'],
-    ['MCでのあの二人のやりとりを、レポで答え合わせ','relation','community'],
-    ['戦利品の写真を撮って、開封の段取りを考える','collector','visual'] ]},
-  { q:'推しを知らない友達に布教するなら？', a:[
-    ['まず相手の好みを聞いて、刺さりそうな入口を選ぶ','creator','context'],
-    ['迷わず、いちばん強いライブ映像を送る','performance','creator'],
-    ['ビジュが仕上がりすぎている画像を、何枚も送りつける','visual','collector'],
-    ['メンバー同士の空気がわかる裏側動画から見せる','relation','creator'] ]},
-  { q:'カメラロールを開くと、いちばん多いのは？', a:[
-    ['推しのスクショ。ほぼ同じ角度が何十枚も並んでいる','visual','performance'],
-    ['グッズ、祭壇、開封の記録写真','collector','visual'],
-    ['会場の看板、セトリ、現場の思い出','memory','collector'],
-    ['インタビューや本人コメントのスクショ','context','creator'] ]},
-  { q:'グループの中で「推しが増える」きっかけは？', a:[
-    ['推しと絡んでいる姿を見て、その人まで好きになる','relation','community'],
-    ['パフォーマンスで突然、知らない顔を見せられた','performance','visual'],
-    ['人柄がにじみ出た発言を聞いてしまった','context','relation'],
-    ['増えるというか、もう全員好き','community','relation'] ]},
-  { q:'いちばん心が躍る告知は？', a:[
-    ['メイキング・裏側映像の公開','relation','performance'],
-    ['ロングインタビューの掲載','context','memory'],
-    ['新グッズ・トレカのラインナップ','collector','visual'],
-    ['ツアー・ライブの開催','memory','performance'] ]},
-  { q:'SNSで、あなたがいちばんやりがちなのは？', a:[
-    ['新規さん向けのまとめ投稿を作る','creator','collector'],
-    ['推しの画像4枚に「顔」とだけ添える','visual','community'],
-    ['長文の感想をメモアプリのスクショで載せる','context','memory'],
-    ['みんなの感想を、ひたすらリポストしていいねする','community','relation'] ]},
-  { q:'推しの誕生日。あなたの過ごし方は？', a:[
-    ['この一年の推しの軌跡を、お祝い動画や画像にまとめる','creator','context'],
-    ['祭壇を組んで、ケーキと一緒に写真を撮る','collector','community'],
-    ['TLのお祝いムードを、ずっと眺めて幸せになる','community','creator'],
-    ['一年前の現場を思い出して、成長にしみじみする','memory','context'] ]},
-  { q:'予定のない休日。推し活するなら？', a:[
-    ['同じライブ映像を、また最初から見る','performance','memory'],
-    ['配信アーカイブの、二人のくだりだけ何度も見返す','relation','performance'],
-    ['トレカをファイルに整理して、並べて眺める','collector','visual'],
-    ['布教用の相関図やプレイリストを作っている','creator','relation'] ]},
-  { q:'あなたの推し活を、ひとことで言うと？', a:[
-    ['記憶で、何度でもアンコールする日々','memory','performance'],
-    ['好きの理由を、誰かに手渡したくなる','creator','context'],
-    ['みんなで沸くのが、いちばん楽しい','community','relation'],
-    ['好きな瞬間を、保存して生きる','visual','collector'] ]}
+  { axis:'what', q:'沼に落ちたきっかけに、いちばん近いのは？', a:{
+      perf:'何気なく再生したパフォ映像を、気づいたら3周していた',
+      visual:'タイムラインに流れてきた写真1枚で、時が止まった',
+      chemi:'メンバー同士がわちゃわちゃしている動画を見てしまった',
+      word:'インタビューで推しが話していた内容が、頭から離れなくなった' }},
+  { axis:'how', q:'新しい供給が出た！ 最初の5分でやることは？', a:{
+      replay:'イヤホンをして、ひとりでじっくり浸る',
+      dig:'再生速度を落として、気になった秒数をメモする',
+      keep:'一時停止とスクショを連打。気づけば40枚',
+      spread:'布教したい友達の顔が浮かんで、どこから見せるか考える',
+      party:'オタ友とのグループLINEに投げて、一緒に騒ぐ' }},
+  { axis:'what', q:'ライブのあと、いちばん記憶に残っているのは？', a:{
+      perf:'ダンスのキメや、歌い出しの一瞬',
+      visual:'衣装やヘアメイク、モニターに抜かれた顔',
+      chemi:'メンバー同士の目配せや、MCでのやりとり',
+      word:'MCや最後のあいさつで、推しが話した言葉' }},
+  { axis:'how', q:'終演後、規制退場を待っている間のあなたは？', a:{
+      replay:'「待って記憶ない」と言いながら、脳内で本編を再生している',
+      dig:'今日のセトリや演出に込められた意味を、もう考え始めている',
+      keep:'拾った銀テと、買ったグッズの無事を確認している',
+      spread:'次の公演に誰を誘うか、もう考えている',
+      party:'連番したオタ友と、ずっと「やばかった」を言い合っている' }},
+  { axis:'how', q:'帰り道、最初にやることは？', a:{
+      replay:'今日のセトリを流して、景色を思い出しながら歩く',
+      dig:'ほかの人のレポを読んで、自分の記憶と答え合わせする',
+      keep:'チケットの半券と銀テを、折れないようにしまう',
+      spread:'推しが気になっている友達に、今日の感想を送る',
+      party:'オタ友と合流して、ファミレスで感想戦を始める' }},
+  { axis:'what', q:'新しい供給の中で、いちばん心が躍るのは？', a:{
+      perf:'ダンスプラクティス・ライブ映像',
+      visual:'新しいアー写・オフショット',
+      chemi:'メイキング・グループでの配信',
+      word:'ロングインタビュー・ドキュメンタリー' }},
+  { axis:'how', q:'カメラロールでいちばん多いのは？', a:{
+      replay:'会場の看板や、現場の思い出の写真',
+      dig:'インタビューや歌詞、本人コメントのスクショ',
+      keep:'推しのスクショとグッズの写真。フォルダ分けも完璧',
+      spread:'布教用に切り出した画像や、自作のまとめ画像',
+      party:'オタ友と撮った写真や、お揃いグッズの写真' }},
+  { axis:'how', q:'SNSで、いちばんやりがちなのは？', a:{
+      replay:'思い出した瞬間を、ぽつぽつ呟く',
+      dig:'長文の感想を、メモアプリのスクショで載せる',
+      keep:'開封報告や、自引き報告をする',
+      spread:'新規さん向けのまとめ投稿を作る',
+      party:'オタ友とリプ欄で叫び合う' }},
+  { axis:'what', q:'グループの中で、ほかのメンバーまで好きになるきっかけは？', a:{
+      perf:'パフォーマンスで、急に知らない顔を見せられたとき',
+      visual:'ビジュが急に仕上がってきたとき',
+      chemi:'推しと仲よくしている姿を見たとき',
+      word:'人柄がにじみ出る発言を聞いたとき' }},
+  { axis:'how', q:'推しの誕生日、どう過ごす？', a:{
+      replay:'一年分の思い出を、ひとりでしみじみ振り返る',
+      dig:'一年前の映像と見比べて、変わったところを探す',
+      keep:'祭壇を組んで、ケーキと一緒に写真を撮る',
+      spread:'お祝い画像を作って、推しの魅力を発信する',
+      party:'オタ友と集まって、カフェやカラオケでお祝いする' }},
+  { axis:'what', w:true, q:'「やっぱり好きだ…」と思い知らされるのは？', a:{
+      perf:'本番で、練習映像を超えるパフォーマンスを見せてくれたとき',
+      visual:'久しぶりの髪型や衣装が、想像以上に似合っていたとき',
+      chemi:'メンバー同士で、信頼し合っているのが伝わってきたとき',
+      word:'しんどかった時期の話を、自分の言葉で話してくれたとき' }},
+  { axis:'how', w:true, q:'予定のない休日。推し活するなら？', a:{
+      replay:'過去のライブ映像を流して、現場の気分にひたる',
+      dig:'配信のアーカイブを、最初から見直す',
+      keep:'トレカをファイルに整理して、並べて眺める',
+      spread:'布教用の資料やプレイリストを作る',
+      party:'オタ友と通話しながら、同時視聴する' }}
 ];
 
 /* ============ 状態 ============ */
-var answers = [], shuffled = [], qi = 0, photo = null, lastRank = null, advancing = false;
-var $ = function(id){ return document.getElementById(id); };
+var answers = [], orders = [], qi = 0, photo = null, R = null, busy = false;
+function $(id){ return document.getElementById(id); }
 function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
-function shuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;} return a; }
-function show(id, on){ $(id).hidden = !on; }
+function shuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;} return a; }
 
 function startQuiz(){
-  answers = QUESTIONS.map(function(){return null;});
-  shuffled = QUESTIONS.map(function(q){ return shuffle(q.a.map(function(_,i){return i;})); });
+  answers = QUESTIONS.map(function(){ return null; });
+  orders = QUESTIONS.map(function(q){ return shuffle(Object.keys(q.a)); });
   qi = 0;
-  show('intro',false); show('resultWrap',false); show('actions',false); show('quiz',true);
-  renderQuestion();
-  $('quiz').scrollIntoView({behavior:'smooth',block:'start'});
+  $('intro').hidden = true; $('result').hidden = true; $('actions').hidden = true; $('quiz').hidden = false;
+  renderQ();
+  $('quiz').scrollIntoView({behavior:'smooth', block:'start'});
 }
-
-function renderQuestion(){
-  var q = QUESTIONS[qi], order = shuffled[qi];
-  $('qno').innerHTML = 'Q.<b>' + (qi+1) + '</b>';
-  var done = answers.filter(function(x){return x!==null;}).length;
-  $('qcount').textContent = (qi+1) + ' / ' + QUESTIONS.length;
-  $('qbar').style.width = (done / QUESTIONS.length * 100) + '%';
+function renderQ(){
+  var q = QUESTIONS[qi];
+  $('step').textContent = 'Q.' + (qi+1) + ' / ' + QUESTIONS.length;
+  var pill = $('axisPill'); pill.className = 'axis-pill ' + q.axis; pill.textContent = q.axis === 'what' ? '何に沸く？' : 'どう沼る？';
+  $('bar').style.width = (answers.filter(function(x){return x!==null;}).length / QUESTIONS.length * 100) + '%';
   $('qtext').textContent = q.q;
-  var marks = ['A','B','C','D'];
-  $('opts').innerHTML = order.map(function(ai, k){
-    return '<button class="opt" type="button" data-a="'+ai+'" aria-pressed="'+(answers[qi]===ai)+'"><span class="mk">'+marks[k]+'</span><span>'+esc(q.a[ai][0])+'</span></button>';
+  $('opts').innerHTML = orders[qi].map(function(k, i){
+    return '<button class="opt" type="button" data-k="'+k+'" aria-pressed="'+(answers[qi]===k)+'"><span class="mk">'+'ABCDE'[i]+'</span><span>'+esc(q.a[k])+'</span></button>';
   }).join('');
   $('backBtn').disabled = qi === 0;
-  $('qtext').classList.remove('fade-in'); void $('qtext').offsetWidth; $('qtext').classList.add('fade-in');
+  $('qtext').classList.remove('pop'); void $('qtext').offsetWidth; $('qtext').classList.add('pop');
 }
-
 $('opts').addEventListener('click', function(e){
-  var b = e.target.closest('.opt'); if(!b || advancing) return;
-  answers[qi] = +b.dataset.a;
-  Array.prototype.forEach.call($('opts').children, function(x){ x.setAttribute('aria-pressed', x===b); });
-  advancing = true;
-  setTimeout(function(){
-    advancing = false;
-    if(qi < QUESTIONS.length-1){ qi++; renderQuestion(); }
-    else finish();
-  }, 220);
+  var b = e.target.closest('.opt'); if(!b || busy) return;
+  answers[qi] = b.dataset.k;
+  Array.prototype.forEach.call($('opts').children, function(x){ x.setAttribute('aria-pressed', x === b); });
+  busy = true;
+  setTimeout(function(){ busy = false; if(qi < QUESTIONS.length-1){ qi++; renderQ(); } else finish(); }, 230);
 });
-$('backBtn').onclick = function(){ if(qi>0){ qi--; renderQuestion(); } };
-$('quitBtn').onclick = function(){ startQuiz(); };
+$('backBtn').onclick = function(){ if(qi > 0){ qi--; renderQ(); } };
+$('restartBtn').onclick = startQuiz;
 $('startBtn').onclick = startQuiz;
 
-/* ============ 採点 ============ */
-function rank(){
-  var s = {}, mainCnt = {}, last = {};
-  ORDER.forEach(function(k){ s[k]=0; mainCnt[k]=0; last[k]=-1; });
-  answers.forEach(function(ai, q){
-    if(ai===null) return;
-    var a = QUESTIONS[q].a[ai];
-    s[a[1]] += 2; s[a[2]] += 1; mainCnt[a[1]]++; last[a[1]] = q;
+/* ============ 採点 ============
+   各設問で選んだタイプに1点。決め手の設問（w）は1.5点。
+   同点なら、決め手の設問で選んだほう → あとの設問で選んだほう の順で決める。 */
+function scoreAxis(axis, keys){
+  var s = {}, dec = {}, last = {};
+  keys.forEach(function(k){ s[k]=0; dec[k]=0; last[k]=-1; });
+  var total = 0;
+  QUESTIONS.forEach(function(q, i){
+    if(q.axis !== axis || answers[i] === null) return;
+    var k = answers[i], w = q.w ? 1.5 : 1;
+    s[k] += w; total += w; last[k] = i; if(q.w) dec[k] = 1;
   });
-  var total = ORDER.reduce(function(t,k){return t+s[k];},0) || 1;
-  var list = ORDER.map(function(k){ return {k:k, s:s[k], m:mainCnt[k], l:last[k]}; });
-  list.sort(function(a,b){ return b.s-a.s || b.m-a.m || b.l-a.l; });
-  // 合計100%になるよう最大剰余法で丸める
-  var raw = list.map(function(x){ return x.s/total*100; }), fl = raw.map(Math.floor), rest = 100 - fl.reduce(function(a,b){return a+b;},0);
-  raw.map(function(r,i){return {i:i,f:r-fl[i]};}).sort(function(a,b){return b.f-a.f;}).slice(0,rest).forEach(function(o){ fl[o.i]++; });
+  var list = keys.map(function(k){ return {k:k, s:s[k], d:dec[k], l:last[k]}; });
+  list.sort(function(a,b){ return b.s-a.s || b.d-a.d || b.l-a.l; });
+  // 合計100%に丸める
+  var raw = list.map(function(x){ return total ? x.s/total*100 : 0; }), fl = raw.map(Math.floor), rest = 100 - fl.reduce(function(a,b){return a+b;},0);
+  raw.map(function(r,i){return {i:i,f:r-fl[i]};}).sort(function(a,b){return b.f-a.f;}).slice(0, total?rest:0).forEach(function(o){ fl[o.i]++; });
   list.forEach(function(x,i){ x.p = fl[i]; });
   return list;
+}
+function judge(){
+  return { what: scoreAxis('what', WHAT_ORDER), how: scoreAxis('how', HOW_ORDER) };
 }
 
 /* ============ 結果 ============ */
 function finish(){
-  lastRank = rank();
+  R = judge();
   renderResult();
-  show('quiz',false); show('resultWrap',true); show('actions',true);
+  $('quiz').hidden = true; $('result').hidden = false; $('actions').hidden = false;
   markList();
-  $('resultWrap').scrollIntoView({behavior:'smooth',block:'start'});
+  $('result').scrollIntoView({behavior:'smooth', block:'start'});
 }
-
 function renderResult(){
-  var r = lastRank, main = TYPES[r[0].k], sub = TYPES[r[1].k], pair = TYPES[main.pair];
+  var w = WHAT[R.what[0].k], h = HOW[R.how[0].k], sub = R.how[1], pair = HOW[h.pair];
   var el = $('result');
-  el.style.setProperty('--accent', main.color);
-  el.style.setProperty('--accent-soft', hexA(main.color,.22));
-  var li = function(a){ return a.map(function(x){return '<li>'+esc(x)+'</li>';}).join(''); };
-  var bars = r.slice(0,4).map(function(x,i){
-    return '<div class="bar '+(i===0?'main':i===1?'sub':'')+'"><span class="nm">'+esc(TYPES[x.k].t)+'</span><span class="tr"><i style="width:0" data-w="'+(x.p/(r[0].p||1)*100)+'"></i></span><span class="pc">'+x.p+'%</span></div>';
-  }).join('');
-  var rest = r.slice(4).filter(function(x){return x.p>0;}).map(function(x){return TYPES[x.k].t+' '+x.p+'%';}).join(' ・ ');
+  el.style.setProperty('--tint', h.color);
+  var li = function(a){ return a.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join(''); };
+  var bars = function(list, src, color){
+    var top = list[0].p || 1;
+    return list.filter(function(x, i){ return i < 2 || x.p > 0; }).map(function(x, i){
+      return '<div class="bar'+(i===0?' top':'')+(x.p===0?' dim':'')+'" style="--c:'+(color||'')+'"><span class="nm">'+esc(src[x.k].name)+'</span><span class="pc">'+x.p+'%</span>'+
+        '<span class="tr"><i style="width:0" data-w="'+(x.p/top*100)+'"></i></span></div>';
+    }).join('');
+  };
   el.innerHTML =
-    '<div class="r-head"><span class="kicker">YOUR OTAKU NUMA TYPE</span><span class="r-no">No.<b>'+main.n+'</b></span></div>' +
-    '<div class="r-top'+(photo?' has-photo':'')+'">' +
-      (photo ? '<figure class="r-photo" style="margin:0"><img src="'+photo.src+'" alt="推し写真"><span>My推し</span></figure>' : '') +
-      '<div><p class="r-label">あなたの沼は…</p><h2 class="r-title"><em>'+esc(main.t)+'</em></h2>' +
-      '<p class="r-catch">'+esc(main.c)+'</p><span class="r-line">「'+esc(main.line)+'」</span></div>' +
+    '<div class="r-head"><div><p class="tag">YOUR NUMA TYPE</p><p class="r-pre">'+esc(w.name)+'の</p></div>' +
+      '<p class="r-stamp">TYPE<strong>'+h.n+'</strong></p></div>' +
+    '<h2 class="r-title"><span class="hl">'+esc(h.name)+'</span></h2>' +
+    '<p class="r-combo">'+esc(COMBO[R.what[0].k][R.how[0].k])+'</p>' +
+    (photo ? '<figure class="r-photo"><img src="'+photo.src+'" alt="推し写真"><span>My推し</span></figure>' : '') +
+    '<p class="r-catch">'+esc(h.c)+'</p>' +
+    '<p class="r-line"><small>口癖</small>「'+esc(h.line)+'」</p>' +
+    '<p class="r-body">'+esc(h.b)+'</p>' +
+    '<div class="r-sec"><h3>生態あるある<small>当てはまったら同類</small></h3><ul class="checks">'+li(h.habits)+'</ul></div>' +
+    '<div class="r-sec"><h3>あなたの沼成分</h3><div class="bars-wrap">' +
+      '<div class="bars"><b>何に沸く？</b>'+bars(R.what, WHAT, '#ffd5df')+'</div>' +
+      '<div class="bars"><b>どう沼る？</b>'+bars(R.how, HOW, h.color)+'</div>' +
+    '</div></div>' +
+    '<div class="r-sec duo"><div class="memo"><b>沸きがちな供給</b><ul>'+li(w.wake)+'</ul></div><div class="memo"><b>SNSでやりがち</b><ul>'+li(h.sns)+'</ul></div></div>' +
+    '<div class="r-sec"><h3>狩られがちな推し</h3><div class="hunt"><p class="t">'+esc(w.hunt)+'</p><p class="d">'+esc(w.huntBody)+'</p></div></div>' +
+    '<div class="r-sec duo">' +
+      (sub.s > 0 ? '<div class="memo c1"><b>サブ沼</b><span class="nm">'+esc(HOW[sub.k].name)+'</span><p>'+esc(HOW[sub.k].c)+'</p></div>'
+                 : '<div class="memo c1"><b>サブ沼</b><span class="nm">なし</span><p>沼り方がぶれない、一途なタイプ。</p></div>') +
+      '<div class="memo c2"><b>相性のいい沼仲間</b><span class="nm">'+esc(pair.name)+'</span><p>'+esc(h.pairWhy)+'</p></div>' +
     '</div>' +
-    '<p class="r-body">'+esc(main.b)+'</p>' +
-    '<div class="r-sec"><h3>生態あるある<small>当てはまったら同類</small></h3><ul class="checks">'+li(main.habits)+'</ul></div>' +
-    '<div class="r-sec"><h3>あなたの沼成分</h3><div class="bars">'+bars+'</div>'+(rest?'<p class="more">ほかにも：'+esc(rest)+'</p>':'')+'</div>' +
-    '<div class="r-sec two"><div class="memo"><b>沸きがちな供給</b><ul>'+li(main.wake)+'</ul></div><div class="memo"><b>SNSでやりがち</b><ul>'+li(main.sns)+'</ul></div></div>' +
-    '<div class="r-sec"><h3>狩られがちな推し</h3><div class="hunt"><p class="t">'+esc(main.huntTitle)+'</p><p class="d">'+esc(main.huntBody)+'</p></div></div>' +
-    '<div class="r-sec sub-pair">' +
-      '<div class="memo"><b>サブ沼</b><span class="nm">'+esc(sub.t)+'</span><p>'+esc(sub.c)+'</p></div>' +
-      '<div class="memo"><b>相性のいい沼仲間</b><span class="nm">'+esc(pair.t)+'</span><p>'+esc(main.pairWhy)+'</p></div>' +
-    '</div>' +
-    '<div class="r-foot"><span>#オタク沼タイプ診断</span><span>MUZE TOOL BOX</span></div>';
+    '<div class="r-foot"><span>#オタク沼タイプ診断</span><span>PLAY ROOM</span></div>';
   requestAnimationFrame(function(){ requestAnimationFrame(function(){
-    el.querySelectorAll('.tr i').forEach(function(i){ i.style.width = Math.max(2,i.dataset.w)+'%'; });
+    el.querySelectorAll('.tr i').forEach(function(i){ i.style.width = Math.max(3, +i.dataset.w) + '%'; });
   }); });
 }
-function hexA(hex,a){ var n=parseInt(hex.slice(1),16); return 'rgba('+(n>>16)+','+(n>>8&255)+','+(n&255)+','+a+')'; }
 
-/* ============ 推し写真 ============ */
+/* ============ 推し写真（縮小してから使う） ============ */
 $('photoInput').addEventListener('change', function(e){
   var f = e.target.files && e.target.files[0]; if(!f) return;
   var rd = new FileReader();
   rd.onload = function(){
     var im = new Image();
     im.onload = function(){
-      var max = 1200, sc = Math.min(1, max/Math.max(im.width, im.height));
-      var c = document.createElement('canvas'); c.width = Math.round(im.width*sc); c.height = Math.round(im.height*sc);
-      c.getContext('2d').drawImage(im,0,0,c.width,c.height);
-      var p = new Image(); p.onload = function(){ photo = p; if(lastRank) renderResult(); $('photoStatus').textContent = '写真を入れました。もう一度「選ぶ」で差し替えできます。'; };
-      p.src = c.toDataURL('image/jpeg',.9);
+      var sc = Math.min(1, 1200/Math.max(im.width, im.height)), c = document.createElement('canvas');
+      c.width = Math.round(im.width*sc); c.height = Math.round(im.height*sc);
+      c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+      var p = new Image();
+      p.onload = function(){ photo = p; if(R) renderResult(); $('photoStatus').textContent = '写真を入れました。「選ぶ」でもう一度差し替えできます。'; };
+      p.src = c.toDataURL('image/jpeg', .9);
     };
     im.onerror = function(){ toast('この画像は読み込めませんでした'); };
     im.src = rd.result;
@@ -548,204 +539,219 @@ $('photoInput').addEventListener('change', function(e){
 });
 
 /* ============ テキスト ============ */
+function fullName(){ return WHAT[R.what[0].k].name + 'の' + HOW[R.how[0].k].name; }
 function shareText(){
-  var r = lastRank, m = TYPES[r[0].k], s = TYPES[r[1].k];
-  return 'わたしの沼は【'+m.t+'】でした。\n'+m.c+'\nサブ沼：'+s.t+'（'+r[1].p+'%）\n\n#オタク沼タイプ診断\nhttps://rikomuze.github.io/otaku-numa-shindan/';
+  var c = COMBO[R.what[0].k][R.how[0].k];
+  return 'わたしは【' + fullName() + '】でした。\n' + c + '\n\n#オタク沼タイプ診断\nhttps://rikomuze.github.io/otaku-numa-shindan/';
 }
 $('copyBtn').onclick = function(){
   var t = shareText();
-  if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(t).then(function(){toast('コピーしました。そのまま投稿に貼れます');},function(){fallbackCopy(t);}); }
-  else fallbackCopy(t);
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(t).then(function(){ toast('コピーしました。そのまま投稿に貼れます'); }, function(){ fallbackCopy(t); });
+  } else fallbackCopy(t);
 };
 function fallbackCopy(t){
-  var ta = document.createElement('textarea'); ta.value = t; ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.opacity='0';
-  document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); toast('コピーしました'); }catch(e){ toast('コピーできませんでした'); } ta.remove();
+  var ta = document.createElement('textarea'); ta.value = t; ta.setAttribute('readonly',''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); toast('コピーしました'); }catch(e){ toast('コピーできませんでした'); }
+  ta.remove();
 }
-$('retryBtn').onclick = function(){ startQuiz(); };
+$('retryBtn').onclick = startQuiz;
 
 /* ============ 保存画像（Canvasで直接描く：1080×1350） ============ */
-var FONT_HAND = '"Klee One","Hiragino Maru Gothic ProN","Yu Gothic",cursive';
-var FONT_GOTH = '"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif';
+var F_SANS = '"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif';
+var F_HAND = '"Klee One","Hiragino Sans",sans-serif';
+var INK = '#282536', MUTED = '#625f6d', BG = '#f7f5ed';
 function loadFonts(text){
   if(!document.fonts || !document.fonts.load) return Promise.resolve();
-  var t = text + 'No.0123456789%#／YOUROTAKUNUMATYPE';
   return Promise.all([
-    document.fonts.load('600 40px "Klee One"', t),
-    document.fonts.load('700 30px "Zen Kaku Gothic New"', t),
-    document.fonts.load('500 30px "Zen Kaku Gothic New"', t)
+    document.fonts.load('900 60px "Zen Kaku Gothic New"', text),
+    document.fonts.load('700 30px "Zen Kaku Gothic New"', text),
+    document.fonts.load('500 30px "Zen Kaku Gothic New"', text),
+    document.fonts.load('600 30px "Klee One"', text)
   ]).catch(function(){}).then(function(){ return document.fonts.ready; });
 }
-var BREAK_AFTER = '、。」はがをにでともへや';
-var NO_HEAD ='、。，．・：；？！）」』】〉》ー～…ぁぃぅぇぉっゃゅょァィゥェォッャュョ%）';
+var NO_HEAD = '、。，．・：；？！）」』】〉》ー～…ぁぃぅぇぉっゃゅょァィゥェォッャュョ%';
+var BREAK_AFTER = '、。」！？はがをにでともへや';
 function wrap(ctx, text, w){
   var lines = [], cur = '';
-  for(var i=0;i<text.length;i++){
+  for(var i=0; i<text.length; i++){
     var ch = text[i];
-    if(ch === '\n'){ lines.push(cur); cur=''; continue; }
-    if(ctx.measureText(cur+ch).width > w && cur){
-      if(NO_HEAD.indexOf(ch) >= 0){ cur += ch; continue; } // 行頭禁則：ぶら下げ
-      // 単語の途中で切らないよう、直近の読点・助詞のうしろで改行する
+    if(ch === '\n'){ lines.push(cur); cur = ''; continue; }
+    if(ctx.measureText(cur + ch).width > w && cur){
+      if(NO_HEAD.indexOf(ch) >= 0){ cur += ch; continue; }
       var cut = -1;
-      for(var j=cur.length-1; j>=Math.max(1,cur.length-9); j--){ if(BREAK_AFTER.indexOf(cur[j])>=0 && NO_HEAD.indexOf(cur[j+1]||'')<0){ cut=j; break; } }
-      if(cut >= 0 && cut < cur.length-1){ lines.push(cur.slice(0,cut+1)); cur = cur.slice(cut+1) + ch; }
+      for(var j=cur.length-1; j>=Math.max(1, cur.length-9); j--){
+        if(BREAK_AFTER.indexOf(cur[j]) >= 0 && NO_HEAD.indexOf(cur[j+1] || '') < 0){ cut = j; break; }
+      }
+      if(cut >= 0 && cut < cur.length-1){ lines.push(cur.slice(0, cut+1)); cur = cur.slice(cut+1) + ch; }
       else { lines.push(cur); cur = ch; }
     } else cur += ch;
   }
   if(cur) lines.push(cur);
   return lines;
 }
-function drawLines(ctx, lines, x, y, lh){ lines.forEach(function(l,i){ ctx.fillText(l, x, y + i*lh); }); return y + lines.length*lh; }
-function tape(ctx, x, y, w, h, rot, color){
-  ctx.save(); ctx.translate(x,y); ctx.rotate(rot); ctx.fillStyle = color; ctx.fillRect(-w/2,-h/2,w,h); ctx.restore();
+function lines(ctx, arr, x, y, lh){ arr.forEach(function(l, i){ ctx.fillText(l, x, y + i*lh); }); return y + arr.length*lh; }
+function rr(ctx, x, y, w, h, r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+function box(ctx, x, y, w, h, fill, shadow){
+  if(shadow){ ctx.fillStyle = INK; rr(ctx, x+shadow, y+shadow*1.25, w, h, 8); ctx.fill(); }
+  ctx.fillStyle = fill; rr(ctx, x, y, w, h, 8); ctx.fill();
+  ctx.lineWidth = 3; ctx.strokeStyle = INK; rr(ctx, x, y, w, h, 8); ctx.stroke();
 }
 function drawCard(g){
-  g = g || 1;
-  var r = lastRank, m = TYPES[r[0].k], s = TYPES[r[1].k];
+  var wk = R.what[0].k, hk = R.how[0].k, w = WHAT[wk], h = HOW[hk];
   var W = 1080, H = 1350, c = document.createElement('canvas'); c.width = W; c.height = H;
-  var ctx = c.getContext('2d'), ink = '#40382f', faded = '#8a8072';
-  // 机
-  ctx.fillStyle = '#f1ebe1'; ctx.fillRect(0,0,W,H);
-  ctx.fillStyle = 'rgba(64,56,47,.07)';
-  for(var gx=11; gx<W; gx+=26) for(var gy=11; gy<H; gy+=26){ ctx.beginPath(); ctx.arc(gx,gy,1.4,0,7); ctx.fill(); }
-  // 紙
-  var px = 56, py = 64, pw = W-112, ph = H-128;
-  ctx.save(); ctx.shadowColor = 'rgba(64,56,47,.22)'; ctx.shadowBlur = 36; ctx.shadowOffsetY = 14;
-  ctx.fillStyle = '#fff'; ctx.fillRect(px,py,pw,ph); ctx.restore();
-  tape(ctx, px+150, py+4, 150, 40, -0.1, 'rgba(226,122,148,.85)');
-  tape(ctx, px+pw-150, py+4, 150, 40, 0.09, 'rgba(164,197,175,.85)');
-  var x0 = px+56, cw = pw-112, y = py+92;
-  ctx.textBaseline = 'alphabetic';
-  ctx.fillStyle = faded; ctx.font = '700 22px '+FONT_GOTH; ctx.fillText('YOUR OTAKU NUMA TYPE', x0, y);
-  ctx.textAlign = 'right'; ctx.fillStyle = m.color; ctx.font = '600 30px '+FONT_HAND; ctx.fillText('No.', x0+cw-62, y);
-  ctx.font = '600 54px '+FONT_HAND; ctx.fillText(m.n, x0+cw, y+4); ctx.textAlign = 'left';
-  y += 44;
-  // 写真＋タイトル
-  var tx = x0, tw = cw, photoBottom = y;
+  var ctx = c.getContext('2d');
+  ctx.fillStyle = BG; ctx.fillRect(0, 0, W, H);
+  var px = 52, py = 52, pw = W - 112, ph = H - 116;
+  box(ctx, px, py, pw, ph, '#fff', 10);
+  var x0 = px + 54, cw = pw - 108, y = py + 60;
+  // 見出しタグ
+  ctx.save(); ctx.translate(x0, y); ctx.rotate(-0.05);
+  ctx.fillStyle = INK; ctx.fillRect(0, -6, 250, 42);
+  ctx.fillStyle = BG; ctx.font = '700 22px ' + F_SANS; ctx.fillText('YOUR NUMA TYPE', 18, 23); ctx.restore();
+  // スタンプ
+  ctx.save(); ctx.translate(x0 + cw - 70, y + 34); ctx.rotate(0.09);
+  ctx.fillStyle = h.color; ctx.fillRect(-64, -48, 128, 96); ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.strokeRect(-64, -48, 128, 96);
+  ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.font = '700 18px ' + F_SANS; ctx.fillText('TYPE', 0, -14);
+  ctx.font = '500 46px ' + F_SANS; ctx.fillText(h.n, 0, 34); ctx.restore(); ctx.textAlign = 'left';
+  y += 100;
+  // 写真
+  var tx = x0, tw = cw - 150, photoBottom = 0;
   if(photo){
-    var fw = g<1 ? 262 : 300, fh = Math.round(fw*1.25), fx = x0, fy = y+10;
-    ctx.save(); ctx.translate(fx+fw/2+10, fy+fh/2+20); ctx.rotate(-0.035);
-    ctx.shadowColor='rgba(64,56,47,.25)'; ctx.shadowBlur=22; ctx.shadowOffsetY=8; ctx.fillStyle='#fff';
-    ctx.fillRect(-fw/2-12,-fh/2-12,fw+24,fh+62); ctx.shadowColor='transparent';
+    var fw = 230, fh = Math.round(fw * 1.25), fx = x0 + cw - fw - 10, fy = y - 4;
+    ctx.save(); ctx.translate(fx + fw/2, fy + fh/2); ctx.rotate(0.04);
+    ctx.fillStyle = INK; ctx.fillRect(-fw/2 - 10 + 6, -fh/2 - 10 + 8, fw + 20, fh + 56);
+    ctx.fillStyle = '#fff'; ctx.fillRect(-fw/2 - 10, -fh/2 - 10, fw + 20, fh + 56);
+    ctx.lineWidth = 3; ctx.strokeStyle = INK; ctx.strokeRect(-fw/2 - 10, -fh/2 - 10, fw + 20, fh + 56);
     var ir = photo.width/photo.height, fr = fw/fh, sw, sh, sx, sy;
-    if(ir > fr){ sh = photo.height; sw = sh*fr; sx = (photo.width-sw)/2; sy = 0; } else { sw = photo.width; sh = sw/fr; sx = 0; sy = (photo.height-sh)*0.3; }
+    if(ir > fr){ sh = photo.height; sw = sh*fr; sx = (photo.width - sw)/2; sy = 0; } else { sw = photo.width; sh = sw/fr; sx = 0; sy = (photo.height - sh)*0.3; }
     ctx.drawImage(photo, sx, sy, sw, sh, -fw/2, -fh/2, fw, fh);
-    ctx.fillStyle = faded; ctx.font = '600 24px '+FONT_HAND; ctx.textAlign='center'; ctx.fillText('My推し', 0, fh/2+38); ctx.textAlign='left';
+    ctx.fillStyle = INK; ctx.font = '600 24px ' + F_HAND; ctx.textAlign = 'center'; ctx.fillText('My推し', 0, fh/2 + 34); ctx.textAlign = 'left';
     ctx.restore();
-    tape(ctx, fx+fw/2+10, fy+4, 110, 30, 0.08, 'rgba(164,197,175,.9)');
-    tx = x0 + fw + 64; tw = cw - fw - 64; photoBottom = fy + fh + 92;
+    tw = cw - fw - 50; photoBottom = fy + fh + 64;
   }
-  var ty = y + 40;
-  ctx.fillStyle = faded; ctx.font = '700 24px '+FONT_GOTH; ctx.fillText('あなたの沼は…', tx, ty); ty += 24;
-  // タイトル（幅に合わせて縮める）
-  var fs = photo ? 64 : 84; ctx.font = '600 '+fs+'px '+FONT_HAND;
-  while(ctx.measureText(m.t).width > tw && fs > 40){ fs -= 2; ctx.font = '600 '+fs+'px '+FONT_HAND; }
-  var tl = wrap(ctx, m.t, tw);
-  ty += fs*0.95;
-  tl.forEach(function(l,i){
-    var lw = ctx.measureText(l).width, ly = ty + i*fs*1.2;
-    ctx.fillStyle = hexA(m.color,.25); ctx.fillRect(tx-4, ly-fs*0.3, lw+8, fs*0.42);
-    ctx.fillStyle = ink; ctx.fillText(l, tx, ly);
-  });
-  ty += (tl.length-1)*fs*1.2 + 26;
-  ctx.font = '700 30px '+FONT_GOTH; ctx.fillStyle = ink;
-  ty = drawLines(ctx, wrap(ctx, m.c, tw), tx, ty+30, 46);
-  // 口癖
-  ctx.font = '600 28px '+FONT_HAND;
-  var ql = wrap(ctx, '「'+m.line+'」', tw-40), qh = ql.length*40 + 28, qy = ty + 26;
-  var qw = Math.min(tw, Math.max.apply(null, ql.map(function(l){return ctx.measureText(l).width;})) + 40);
-  ctx.fillStyle = '#f1ebe1'; ctx.fillRect(tx, qy, qw, qh);
-  ctx.fillStyle = m.color; ctx.fillRect(tx+14, qy-14, 72, 28);
-  ctx.fillStyle = '#fff'; ctx.font = '700 17px '+FONT_GOTH; ctx.fillText('口癖', tx+32, qy+6);
-  ctx.fillStyle = ink; ctx.font = '600 28px '+FONT_HAND; drawLines(ctx, ql, tx+20, qy+48, 40);
-  ty = qy + qh;
-  y = Math.max(ty, photoBottom) + Math.max(40, 52*g);
+  // 名前
+  ctx.fillStyle = INK; ctx.font = '600 38px ' + F_HAND; ctx.fillText(w.name + 'の', tx, y); y += 20;
+  var fs = 84; ctx.font = '900 ' + fs + 'px ' + F_SANS;
+  var maxW = photo ? tw : cw;
+  while(ctx.measureText(h.name).width > maxW && fs > 48){ fs -= 2; ctx.font = '900 ' + fs + 'px ' + F_SANS; }
+  y += fs;
+  var nw = ctx.measureText(h.name).width;
+  ctx.save(); ctx.translate(tx + nw/2, y - fs*0.12); ctx.rotate(-0.03); ctx.fillStyle = h.color; ctx.fillRect(-nw/2 - 10, -fs*0.08, nw + 20, fs*0.3); ctx.restore();
+  ctx.fillStyle = INK; ctx.fillText(h.name, tx, y);
+  y += 30;
+  // 20通りの一言
+  ctx.font = '600 31px ' + F_HAND;
+  var cl = wrap(ctx, COMBO[wk][hk], tw - 44), chh = cl.length*46 + 30;
+  box(ctx, tx, y, tw, chh, h.color, 0);
+  ctx.fillStyle = INK; lines(ctx, cl, tx + 22, y + 48, 46);
+  y += chh + 50;
+  // 口癖（キャッチ文は画面側だけに載せ、画像はすっきりさせる）
+  y += 4;
+  ctx.font = '700 18px ' + F_SANS; var lw = ctx.measureText('口癖').width + 26;
+  ctx.fillStyle = INK; rr(ctx, tx, y - 22, lw, 30, 15); ctx.fill();
+  ctx.fillStyle = '#fff'; ctx.fillText('口癖', tx + 13, y);
+  ctx.fillStyle = INK; ctx.font = '600 28px ' + F_HAND;
+  var ql = wrap(ctx, '「' + h.line + '」', tw - lw - 14);
+  y = lines(ctx, ql, tx + lw + 12, y + 2, 40);
+  y = Math.max(y, photoBottom) + Math.max(34, 48*g);
   // 生態あるある
-  function secTitle(t){
-    ctx.fillStyle = ink; ctx.font = '600 30px '+FONT_HAND; ctx.fillText(t, x0, y);
-    ctx.save(); ctx.strokeStyle='rgba(64,56,47,.32)'; ctx.setLineDash([7,6]); ctx.lineWidth=2;
-    ctx.beginPath(); ctx.moveTo(x0, y+16); ctx.lineTo(x0+cw, y+16); ctx.stroke(); ctx.restore();
-    y += 40 + 22*g;
+  function sec(t){
+    ctx.fillStyle = INK; ctx.font = '900 30px ' + F_SANS; ctx.fillText(t, x0, y);
+    y += 26 + 22*g;
   }
-  secTitle('生態あるある');
-  ctx.font = '500 27px '+FONT_GOTH;
-  m.habits.forEach(function(h){
-    ctx.strokeStyle = ink; ctx.lineWidth = 2.5; ctx.strokeRect(x0+2, y-22, 24, 24);
-    ctx.strokeStyle = m.color; ctx.lineWidth = 4.5; ctx.beginPath(); ctx.moveTo(x0+7,y-11); ctx.lineTo(x0+14,y-3); ctx.lineTo(x0+30,y-28); ctx.stroke();
-    ctx.fillStyle = ink; y = drawLines(ctx, wrap(ctx, h, cw-48), x0+48, y, 40) + 8;
+  sec('生態あるある');
+  ctx.font = '500 27px ' + F_SANS;
+  h.habits.forEach(function(t){
+    ctx.fillStyle = h.color; rr(ctx, x0, y - 24, 28, 28, 5); ctx.fill();
+    ctx.lineWidth = 2.5; ctx.strokeStyle = INK; rr(ctx, x0, y - 24, 28, 28, 5); ctx.stroke();
+    ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x0 + 7, y - 11); ctx.lineTo(x0 + 13, y - 4); ctx.lineTo(x0 + 23, y - 19); ctx.stroke();
+    ctx.fillStyle = INK; y = lines(ctx, wrap(ctx, t, cw - 46), x0 + 46, y, 40) + 6;
   });
-  y += 30*g;
-  // 沼成分
-  secTitle('沼成分');
-  r.slice(0,3).forEach(function(x,i){
-    var t = TYPES[x.k];
-    ctx.fillStyle = ink; ctx.font = (i===0?'700 ':'500 ')+'26px '+FONT_GOTH; ctx.fillText(t.t, x0, y);
-    var bx = x0+300, bw = cw-300-90;
-    ctx.fillStyle = '#f1ebe1'; ctx.fillRect(bx, y-20, bw, 20);
-    ctx.fillStyle = i===0 ? m.color : i===1 ? '#D8A6A8' : '#b8ad9d'; ctx.fillRect(bx, y-20, Math.max(6, bw*x.p/(r[0].p||1)), 20);
-    ctx.fillStyle = faded; ctx.font = '700 24px '+FONT_GOTH; ctx.textAlign='right'; ctx.fillText(x.p+'%', x0+cw, y); ctx.textAlign='left';
-    y += 40 + 8*g;
-  });
-  y += 24*g;
+  y += 20 + 16*g;
+  // 沼成分（2軸を横並び）
+  sec('沼成分');
+  var colW = (cw - 30)/2;
+  function col(cx, title, list, src, color){
+    var yy = y;
+    ctx.fillStyle = MUTED; ctx.font = '700 20px ' + F_SANS; ctx.fillText(title, cx, yy); yy += 38;
+    var top = list[0].p || 1;
+    list.slice(0, 3).forEach(function(x, i){
+      ctx.fillStyle = i === 0 ? INK : MUTED; ctx.font = (i === 0 ? '700 ' : '500 ') + '24px ' + F_SANS; ctx.fillText(src[x.k].name, cx, yy);
+      ctx.textAlign = 'right'; ctx.font = '700 22px ' + F_SANS; ctx.fillText(x.p + '%', cx + colW, yy); ctx.textAlign = 'left';
+      var by = yy + 12, bw = colW;
+      ctx.fillStyle = '#fff'; rr(ctx, cx, by, bw, 16, 8); ctx.fill();
+      if(x.p > 0){ ctx.fillStyle = i === 0 ? color : '#d5d1d9'; rr(ctx, cx, by, Math.max(16, bw * x.p/top), 16, 8); ctx.fill(); }
+      ctx.lineWidth = 2; ctx.strokeStyle = INK; rr(ctx, cx, by, bw, 16, 8); ctx.stroke();
+      yy += 54 + 4*g;
+    });
+    return yy;
+  }
+  var y1 = col(x0, '何に沸く？', R.what, WHAT, '#ffd5df');
+  var y2 = col(x0 + colW + 30, 'どう沼る？', R.how, HOW, h.color);
+  y = Math.max(y1, y2) + 4 + 14*g;
   // 狩られがちな推し
-  secTitle('狩られがちな推し');
-  ctx.fillStyle = ink; ctx.font = '600 32px '+FONT_HAND;
-  y = drawLines(ctx, wrap(ctx, m.huntTitle, cw), x0, y, 44);
+  sec('狩られがちな推し');
+  ctx.fillStyle = INK; ctx.font = '600 31px ' + F_HAND;
+  y = lines(ctx, wrap(ctx, w.hunt, cw), x0, y, 44);
   // フッター
-  var fy2 = py+ph-56;
-  ctx.save(); ctx.strokeStyle='rgba(64,56,47,.32)'; ctx.setLineDash([7,6]); ctx.lineWidth=2;
-  ctx.beginPath(); ctx.moveTo(x0, fy2-40); ctx.lineTo(x0+cw, fy2-40); ctx.stroke(); ctx.restore();
-  ctx.fillStyle = ink; ctx.font = '700 26px '+FONT_GOTH; ctx.fillText('#オタク沼タイプ診断', x0, fy2);
-  ctx.fillStyle = faded; ctx.font = '500 20px '+FONT_GOTH; ctx.textAlign='right';
-  ctx.fillText('rikomuze.github.io/otaku-numa-shindan', x0+cw, fy2); ctx.textAlign='left';
-  c._overflow = (y - 44) > fy2 - 78; // 最終行のベースラインが区切り線にかからないか
+  var fy = py + ph - 46;
+  ctx.save(); ctx.strokeStyle = '#d5d1d9'; ctx.setLineDash([8, 7]); ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(x0, fy - 40); ctx.lineTo(x0 + cw, fy - 40); ctx.stroke(); ctx.restore();
+  ctx.fillStyle = INK; ctx.font = '700 25px ' + F_SANS; ctx.fillText('#オタク沼タイプ診断', x0, fy);
+  ctx.fillStyle = MUTED; ctx.font = '500 19px ' + F_SANS; ctx.textAlign = 'right';
+  ctx.fillText('rikomuze.github.io/otaku-numa-shindan', x0 + cw, fy); ctx.textAlign = 'left';
+  c._overflow = (y - 44) > fy - 76;
   return c;
 }
 
 var lastBlob = null;
 $('saveBtn').onclick = function(){
-  if(!lastRank) return;
+  if(!R) return;
   var btn = this; btn.disabled = true; btn.textContent = '画像を作っています…';
-  var m = TYPES[lastRank[0].k];
-  var allText = m.t+m.c+m.line+m.habits.join('')+m.huntTitle+lastRank.slice(0,3).map(function(x){return TYPES[x.k].t;}).join('')+'生態あるある沼成分狩られがちな推しあなたの沼は…口癖My推し#オタク沼タイプ診断rikomuze.github.io/otaku-numa-shindan「」';
-  loadFonts(allText).then(function(){
-    var c, gs = [1,.85,.7,.55,.4];
-    for(var i=0;i<gs.length;i++){ c = drawCard(gs[i]); if(!c._overflow) break; }
+  var wk = R.what[0].k, hk = R.how[0].k, h = HOW[hk], w = WHAT[wk];
+  var txt = w.name + h.name + COMBO[wk][hk] + h.c + h.line + h.habits.join('') + w.hunt +
+    WHAT_ORDER.map(function(k){return WHAT[k].name;}).join('') + HOW_ORDER.map(function(k){return HOW[k].name;}).join('') +
+    'のYOURNUMATYPE口癖「」生態あるある沼成分何に沸く？どう沼る？狩られがちな推しMy推し#オタク沼タイプ診断rikomuze.github.io/otaku-numa-shindan0123456789%';
+  loadFonts(txt).then(function(){
+    var c, gs = [1, .8, .6, .4];
+    for(var i=0; i<gs.length; i++){ c = drawCard(gs[i]); if(!c._overflow) break; }
     c.toBlob(function(b){
       btn.disabled = false; btn.textContent = '結果カードを画像にする';
       if(!b){ toast('画像を作れませんでした'); return; }
       lastBlob = b;
       $('modalImg').src = URL.createObjectURL(b);
-      var f = new File([b], 'otaku-numa-'+lastRank[0].k+'.png', {type:'image/png'});
+      var f = new File([b], 'otaku-numa.png', {type:'image/png'});
       $('shareImgBtn').hidden = !(navigator.canShare && navigator.canShare({files:[f]}));
-      show('modal', true);
+      $('modal').hidden = false;
     }, 'image/png');
   });
 };
 $('shareImgBtn').onclick = function(){
   if(!lastBlob) return;
-  var f = new File([lastBlob], 'otaku-numa-'+lastRank[0].k+'.png', {type:'image/png'});
-  navigator.share({files:[f], text:shareText()}).catch(function(){});
+  navigator.share({ files:[new File([lastBlob], 'otaku-numa.png', {type:'image/png'})], text: shareText() }).catch(function(){});
 };
 $('dlBtn').onclick = function(){
   if(!lastBlob) return;
-  var a = document.createElement('a'); a.href = $('modalImg').src; a.download = 'otaku-numa-'+lastRank[0].k+'.png';
+  var a = document.createElement('a'); a.href = $('modalImg').src; a.download = 'otaku-numa.png';
   document.body.appendChild(a); a.click(); a.remove();
   toast('うまく保存できないときは、画像を長押ししてください');
 };
-$('closeBtn').onclick = function(){ show('modal', false); };
-$('modal').addEventListener('click', function(e){ if(e.target === this) show('modal', false); });
-document.addEventListener('keydown', function(e){ if(e.key==='Escape') show('modal', false); });
+$('closeBtn').onclick = function(){ $('modal').hidden = true; };
+$('modal').addEventListener('click', function(e){ if(e.target === this) this.hidden = true; });
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') $('modal').hidden = true; });
 
 /* ============ 一覧・トースト ============ */
 function buildLists(){
-  $('peek').innerHTML = ORDER.map(function(k){ return '<span>'+esc(TYPES[k].t)+'</span>'; }).join('');
-  $('typeList').innerHTML = ORDER.map(function(k){
-    var t = TYPES[k];
-    return '<details data-k="'+k+'"><summary><span class="n">'+t.n+'</span><span class="t">'+esc(t.t)+'</span><span class="x" aria-hidden="true">＋</span></summary><p>'+esc(t.c)+'<br>口癖：「'+esc(t.line)+'」</p></details>';
+  $('typeList').innerHTML = HOW_ORDER.map(function(k){
+    var h = HOW[k];
+    return '<details data-k="'+k+'" style="--tint:'+h.color+'"><summary><span>'+esc(h.name)+'</span><i>'+esc(h.verb)+'</i></summary><p>'+esc(h.c)+'<br>口癖：「'+esc(h.line)+'」</p></details>';
   }).join('');
+  $('whatList').innerHTML = WHAT_ORDER.map(function(k){ return '<span>'+esc(WHAT[k].name)+'：'+esc(WHAT[k].short)+'</span>'; }).join('');
 }
 function markList(){
-  document.querySelectorAll('#typeList details').forEach(function(d){ d.classList.toggle('me', !!lastRank && d.dataset.k === lastRank[0].k); });
+  document.querySelectorAll('#typeList details').forEach(function(d){ d.classList.toggle('me', !!R && d.dataset.k === R.how[0].k); });
 }
 var tt;
 function toast(t){
